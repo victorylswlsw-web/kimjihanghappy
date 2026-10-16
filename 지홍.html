@@ -1,0 +1,664 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071321"><title>여수의 왕과 방구석 참모</title>
+<style>
+:root{--bg:#071321;--p:#0d2032;--p2:#122b40;--line:#29465c;--txt:#eaf4ff;--muted:#91a8bd;--cyan:#63e5df;--gold:#ffd486;--pink:#ff819b;--green:#8be3ad}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0,#18435a66,transparent 32%),radial-gradient(ellipse at 100% 10%,#242e5b66,transparent 30%),var(--bg);color:var(--txt);font-family:system-ui,"Malgun Gothic",sans-serif}button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}.hidden{display:none!important}.eyebrow{font-size:10px;letter-spacing:.16em;color:var(--cyan);font-weight:900}.tiny{font-size:10px;color:var(--muted);line-height:1.7}.btn{border:1px solid #34536a;border-radius:11px;padding:11px 15px;font-weight:850;color:var(--txt);background:#11283b}.btn:hover{border-color:var(--cyan)}.primary{background:linear-gradient(135deg,#76eadf,#4db6cf);border:0;color:#051723}.danger{background:#331b2a;border-color:#794157;color:#ffc1d0}
+#title{min-height:100vh;display:grid;place-items:center;padding:24px}.title-wrap{width:min(1100px,100%);display:grid;grid-template-columns:1fr .9fr;gap:40px;align-items:center}.title-mark{display:inline-flex;align-items:center;gap:8px;border:1px solid #35536b;border-radius:99px;padding:8px 12px;background:#0b1b2abb;color:#b7d0e4;font-size:11px}.dot{width:7px;height:7px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan)}h1{font-size:clamp(40px,6vw,74px);line-height:1.04;letter-spacing:-.055em;margin:24px 0 18px}h1 span{display:block;color:var(--cyan)}.lead{font-size:14px;line-height:1.95;color:#b6cadd;max-width:560px}.tagrow{display:flex;gap:7px;flex-wrap:wrap;margin:22px 0 27px}.tag{font-size:11px;color:#acc3d7;border:1px solid #29465d;border-radius:8px;padding:7px 9px;background:#0c1b2a}.title-actions{display:flex;gap:10px;flex-wrap:wrap}.title-note{font-size:10px;line-height:1.75;color:#6e8aa4;margin-top:24px}.art-panel{min-height:480px;position:relative;border:1px solid #2d4f65;border-radius:26px;background:linear-gradient(145deg,#102a40,#0a1726);padding:23px;overflow:hidden;box-shadow:0 22px 70px #0005}.art-head{display:flex;justify-content:space-between;color:#9bb5cb;font-size:10px}.map-art{height:290px;margin:22px 0;position:relative;border:1px solid #234960;border-radius:17px;overflow:hidden;background:radial-gradient(ellipse at 70% 50%,#1e899466,transparent 34%),repeating-linear-gradient(25deg,transparent 0 31px,#42647a30 32px 33px),repeating-linear-gradient(112deg,transparent 0 41px,#42647a22 42px 43px),#0a1928}.coast{position:absolute;width:115%;height:75%;left:-12%;top:24%;border:2px solid #3c8196;border-left-color:transparent;border-radius:50%;transform:rotate(-20deg)}.route{height:2px;position:absolute;background:linear-gradient(90deg,transparent,var(--cyan),var(--gold),transparent);box-shadow:0 0 14px #63e5df77}.r1{width:65%;left:12%;top:40%;transform:rotate(22deg)}.r2{width:50%;left:39%;top:36%;transform:rotate(59deg)}.pin{position:absolute;width:43px;height:43px;border:1px solid #64cad6;border-radius:13px;background:#12324a;display:grid;place-items:center;font-size:18px;box-shadow:0 0 25px #40c3d455}.p1{left:12%;top:27%}.p2{left:48%;top:55%;border-color:var(--gold)}.p3{right:10%;top:18%}.map-label{position:absolute;bottom:13px;left:14px;font-size:9px;color:#8eacc3;letter-spacing:.15em}.quote{border-left:2px solid var(--cyan);padding-left:14px;color:#c4d7e8;font-size:13px;line-height:1.85}.quote b{color:white}.float{position:absolute;right:17px;bottom:16px;background:#142d41;border:1px solid #36566c;border-radius:11px;padding:9px 12px;color:#c1d7e6;font-size:10px}.float strong{display:block;color:var(--gold);font-size:13px;margin-top:3px}
+#game{display:none;min-height:100vh}.topbar{position:sticky;top:0;z-index:10;height:62px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#071321ed;border-bottom:1px solid #254057;backdrop-filter:blur(14px)}.brand{display:flex;gap:9px;align-items:center}.brandicon{width:34px;height:34px;border-radius:10px;background:linear-gradient(140deg,#72e8df,#247994);color:#05202a;display:grid;place-items:center;font-weight:1000}.brandname{font-size:12px;font-weight:900}.brandsub{font-size:9px;color:#7896b0;margin-top:3px}.top-meta{display:flex;align-items:center;gap:14px;font-size:10px;color:#94adc2}.live{display:flex;align-items:center;gap:6px}.live:before{content:"";width:6px;height:6px;border-radius:50%;background:#83e2a6}.top-buttons{display:flex;gap:7px}.small{font-size:10px;padding:8px 10px;border-radius:8px}.layout{max-width:1450px;margin:auto;padding:20px;display:grid;grid-template-columns:190px minmax(0,1fr) 250px;gap:16px;align-items:start}.sidebar,.rightbar{border:1px solid #203a50;background:#0b1a29dd;border-radius:16px;overflow:hidden}.side-title{padding:15px;border-bottom:1px solid #21384d}.side-nav{padding:8px;display:grid;gap:4px}.nav{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:transparent;border:1px solid transparent;color:#93abc0;border-radius:10px;padding:10px;font-weight:800;font-size:11px}.nav-icon{width:25px;height:25px;background:#172d41;border-radius:7px;display:grid;place-items:center}.nav.active{background:#123345;border-color:#2c6875;color:#e1ffff}.nav.active .nav-icon{background:#246475;color:#c3fffa}.side-objective{padding:13px;border-top:1px solid #21384d;font-size:10px;color:#abc2d4;line-height:1.75}.side-objective b{display:block;color:var(--gold);margin-bottom:5px}.center{min-width:0}.chapter-strip{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid #2b485d;border-radius:14px;background:linear-gradient(100deg,#10273a,#0d1d2d);padding:13px 16px;margin-bottom:13px}.chapter-info{display:flex;align-items:center;gap:12px}.chapter-number{width:40px;height:40px;display:grid;place-items:center;border:1px solid #3a7884;background:#173a4d;border-radius:11px;color:var(--cyan);font-weight:950}.chapter-title{font-size:13px;font-weight:900}.chapter-sub{font-size:10px;color:#91a9c0;margin-top:4px}.prog{width:125px;flex:none}.progline{display:flex;justify-content:space-between;font-size:9px;color:#8fa8bd;margin-bottom:6px}.track{height:5px;background:#20394c;border-radius:9px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--cyan),#80a9ff);transition:width .3s}.card{border:1px solid #27465d;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,#10263a,#0b1928);box-shadow:0 16px 48px #0004}.hero{height:135px;position:relative;padding:18px 23px;background:radial-gradient(ellipse at 78% 23%,#2885914c,transparent 38%),linear-gradient(115deg,#19394f,#0c1a29);overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(130deg,transparent 0 42px,#51748a1d 43px 44px)}.kicker,.hero h2,.location,.emblem{position:relative;z-index:1}.kicker{font-size:9px;letter-spacing:.16em;color:var(--cyan);font-weight:900}.hero h2{font-size:clamp(22px,3vw,31px);line-height:1.2;letter-spacing:-.045em;margin:9px 0 6px;font-weight:950}.location{font-size:10px;color:#9bb6cc}.emblem{position:absolute;right:18px;bottom:14px;border:1px solid #4e758a;border-radius:7px;padding:6px 8px;background:#071521aa;color:#d2e6f4;font-size:9px;letter-spacing:.14em}.body{padding:22px 24px}.speaker{display:flex;align-items:center;gap:9px;margin-bottom:15px}.avatar{height:34px;width:34px;display:grid;place-items:center;background:#1c3e52;border:1px solid #3d687b;border-radius:10px;color:#d4fcf7;font-weight:950}.speaker-name{font-size:11px;font-weight:900}.speaker-role{font-size:9px;color:#7f9cb4;margin-top:3px}.narrative{font-size:13px;line-height:1.95;color:#d1dfec;max-width:900px}.narrative p{margin:0 0 13px}.narrative p:last-child{margin-bottom:0}.conditional{background:#202d38;border-left:2px solid var(--gold);border-radius:0 9px 9px 0;margin-top:12px;padding:11px 13px;color:#f4dfb3;font-size:11px;line-height:1.8}.divider{height:1px;background:#233d52;margin:20px 0 16px}.choice-label{font-size:9px;letter-spacing:.14em;color:#91abc0;font-weight:900;margin-bottom:10px}.choices{display:grid;gap:8px}.choice{width:100%;display:flex;gap:12px;align-items:center;text-align:left;padding:12px;border:1px solid #2b4a62;border-radius:11px;background:linear-gradient(100deg,#11283c,#0d1d2e);color:#eef7ff;transition:.15s}.choice:hover:not(:disabled){border-color:#64d1d2;background:#153349;transform:translateX(2px)}.choice:disabled{opacity:.42;cursor:not-allowed}.choice-num{width:28px;height:28px;flex:none;border-radius:8px;display:grid;place-items:center;background:#1a394e;color:var(--cyan);font-weight:950;font-size:11px}.choice-copy{flex:1;min-width:0}.choice-title{font-size:12px;font-weight:850;line-height:1.55}.choice-desc{font-size:10px;line-height:1.6;color:#92acc1;margin-top:4px}.arrow{color:#7696ae;font-size:18px}.req{color:var(--pink)}.scene-foot{display:flex;justify-content:space-between;gap:10px;margin-top:17px;font-size:9px;color:#6685a0}.right-section{padding:15px;border-bottom:1px solid #21384d}.right-section:last-child{border-bottom:0}.right-head{font-size:11px;font-weight:900;display:flex;justify-content:space-between;gap:10px;margin-bottom:12px}.stat{margin-bottom:12px}.stat:last-child{margin-bottom:0}.stat-label{display:flex;justify-content:space-between;color:#9eb5c9;font-size:9px;margin-bottom:5px}.stat-label b{color:#eaf4ff}.stat .track{height:5px}.cash{background:linear-gradient(90deg,#dfa750,#ffda9a)}.intel{background:linear-gradient(90deg,#4d9bfb,#86dfff)}.influence{background:linear-gradient(90deg,#7287ff,#c3a5ff)}.morale{background:linear-gradient(90deg,#42c58c,#9cefc0)}.heat{background:linear-gradient(90deg,#e2877a,#ff6285)}.relrow{display:flex;align-items:center;gap:8px;margin:11px 0}.rel-icon{width:28px;height:28px;border:1px solid #36586d;background:#183449;border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:900}.rel-info{flex:1;min-width:0}.relname{font-size:10px;font-weight:850}.relrole{font-size:9px;color:#7998b0;margin-top:2px}.rel-track{height:4px;background:#20384b;border-radius:8px;overflow:hidden;margin-top:5px}.rel-fill{height:100%;background:linear-gradient(90deg,#5ba5cf,#77e4d8)}.relval{font-size:9px;font-weight:900;color:#cdeaf7}.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{font-size:9px;color:#a1bdd2;background:#11283b;border:1px solid #28465b;border-radius:7px;padding:6px 8px}.chip b{color:white;margin-left:4px}.objective-card{border:1px solid #2b485c;background:#10273a;border-radius:10px;padding:11px;font-size:10px;color:#b2c9da;line-height:1.75}.muted{font-size:9px;color:#6f8ca6;line-height:1.65;margin-top:10px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,14px);opacity:0;pointer-events:none;z-index:60;background:#123045;border:1px solid #5b9ca4;border-radius:10px;padding:11px 16px;max-width:calc(100vw - 24px);font-size:11px;box-shadow:0 18px 45px #0008;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-back{position:fixed;inset:0;z-index:50;background:#020812c9;display:grid;place-items:center;padding:15px;backdrop-filter:blur(7px)}.modal{width:min(740px,100%);max-height:88vh;overflow:auto;background:linear-gradient(#10263a,#091725);border:1px solid #38576b;border-radius:18px;box-shadow:0 25px 90px #0009}.modal-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px 20px;background:#10263af5;border-bottom:1px solid #29465a}.modal-title{font-size:18px;font-weight:950}.close{width:32px;height:32px;border:1px solid #36566c;border-radius:8px;background:#142d41;color:#d8eafa;font-size:18px}.modal-body{padding:20px}.hub-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.hub-action{min-height:105px;border:1px solid #2d4d63;background:#10283b;color:#e7f3fc;text-align:left;padding:12px;border-radius:11px}.hub-action:hover:not(:disabled){border-color:var(--cyan)}.hub-action:disabled{opacity:.35;cursor:not-allowed}.hub-action .ico{font-size:17px;margin-bottom:6px}.hub-action b{display:block;font-size:11px}.hub-action span{display:block;color:#8da9c0;font-size:9px;line-height:1.6;margin-top:5px}.hub-action em{font-style:normal;color:var(--gold);font-size:9px;display:block;margin-top:6px}.hub-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}.pips{display:flex;gap:5px}.pip{width:12px;height:12px;background:#173247;border:1px solid #42647a;border-radius:4px}.pip.on{background:var(--cyan);border-color:var(--cyan)}.optional{border:1px dashed #658894;border-radius:10px;background:#142e3d;color:#c9f6f0;padding:10px 12px;font-size:10px;font-weight:850}.optional:disabled{opacity:.4}.map-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.map-chapter{background:#0d1e2e;border:1px solid #2b4559;border-radius:10px;padding:12px;min-height:90px;text-align:left;color:#a5bdd0}.map-chapter.unlocked{border-color:#43828a;background:#102b3a;color:#eefcff}.map-chapter.done{border-color:#6caa8b;background:#102b2e}.map-chapter:disabled{opacity:.35}.map-chapter span{font-size:9px;color:var(--cyan);font-weight:900}.map-chapter b{display:block;font-size:11px;margin:7px 0}.map-chapter small{font-size:9px;line-height:1.5;color:#829fb5}.roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.roster-card,.log-card{border:1px solid #2a465b;border-radius:11px;background:#0d2031;padding:13px}.roster-title{font-size:12px;font-weight:900}.roster-sub{font-size:9px;color:#85a2b9;margin-top:3px}.roster-desc{font-size:10px;line-height:1.8;color:#b2c6d7;margin-top:10px}.log-list{display:grid;gap:8px}.log-card{padding:11px}.log-top{display:flex;justify-content:space-between;gap:10px;color:#87a7c0;font-size:9px;margin-bottom:5px}.log-choice{font-size:11px;font-weight:850;line-height:1.6}.log-effect{font-size:9px;color:#80d1bd;line-height:1.6;margin-top:4px}.stamp{display:inline-block;border:1px solid #679c9c;border-radius:7px;padding:7px 9px;color:#a3fff2;background:#123536;font-size:9px;font-weight:900;letter-spacing:.16em;margin-bottom:15px}.ending-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:15px 0}.ending-stat{border:1px solid #2a485d;background:#10283b;border-radius:9px;padding:10px}.ending-stat b{display:block;color:var(--gold);font-size:18px}.ending-stat span{font-size:9px;color:#8ca9c0}.footnote{text-align:center;color:#5f7d96;font-size:9px;line-height:1.7;margin-top:15px}
+@media(max-width:1180px){.layout{grid-template-columns:165px minmax(0,1fr)}.rightbar{grid-column:2;display:grid;grid-template-columns:1fr 1fr}.right-section{border-right:1px solid #21384d}}@media(max-width:740px){.title-wrap{grid-template-columns:1fr;gap:22px;max-width:540px}.title-copy{padding-top:7px}.art-panel{min-height:330px;padding:15px}.map-art{height:195px;margin:15px 0}.topbar{height:56px;padding:0 11px}.brandname{font-size:10px}.brandsub,.top-meta{display:none}.top-buttons .btn{font-size:9px;padding:7px 8px}.layout{display:flex;flex-direction:column;padding:10px;gap:10px}.center{width:100%;order:1}.sidebar{order:2;width:100%;position:sticky;bottom:5px;z-index:20;box-shadow:0 8px 30px #0008}.side-title,.side-objective{display:none}.side-nav{display:flex;justify-content:space-around;padding:5px;gap:2px}.nav{flex:1;flex-direction:column;gap:4px;text-align:center;padding:6px 2px;font-size:8px}.nav-icon{width:31px;height:23px}.rightbar{order:3;width:100%;grid-column:auto;display:grid;grid-template-columns:1fr 1fr}.right-section{padding:12px}.chapter-strip{padding:10px;gap:8px}.chapter-number{width:34px;height:34px}.chapter-title{font-size:11px}.chapter-sub{font-size:9px}.prog{width:78px}.hero{height:125px;padding:15px}.hero h2{font-size:23px;max-width:75%}.emblem{right:11px;bottom:11px;font-size:8px}.body{padding:17px 13px}.narrative{font-size:12px;line-height:1.9}.choice{padding:10px;gap:9px}.choice-num{width:25px;height:25px}.choice-title{font-size:11px}.choice-desc{font-size:9px}.hub-actions{grid-template-columns:1fr 1fr}.hub-action{min-height:112px;padding:10px}.map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.roster{grid-template-columns:1fr}.modal-body{padding:14px}.modal-head{padding:14px}.ending-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:370px){.title-actions .btn{width:100%}.hub-actions{grid-template-columns:1fr}.rightbar{grid-template-columns:1fr}.map-grid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div id="title"><div class="title-wrap"><div><div class="title-mark"><span class="dot"></span> YEOSU / STRATEGY SIMULATION</div><h1>여수의 왕과<span>방구석 참모</span></h1><p class="lead">밖으로 나가지 않는 참모, 명령이라면 일단 실행하는 따까리, 그리고 여수의 왕. 단체 채팅방에서 시작된 소동은 여수 전체가 주목하는 왕권 대전으로 번져 간다. 지홍의 방에서 작전을 지휘하고 친구들의 신뢰를 얻어, 왕관이 의미하는 책임을 결정하라.</p><div class="tagrow"><span class="tag">장편 선택형 스토리</span><span class="tag">전략·자원 관리</span><span class="tag">인물 관계</span><span class="tag">다중 엔딩</span><span class="tag">자동 저장</span></div><div class="title-actions"><button class="btn primary" id="start">새 캠페인 시작 ↗</button><button class="btn" id="continue">이어하기</button></div><div class="title-note">예상 플레이 시간 약 2시간을 목표로 설계했습니다. 선택과 탐험 속도에 따라 달라질 수 있습니다.<br>설치 없이 브라우저에서 실행되며 진행 상황은 같은 브라우저에 자동 저장됩니다.</div></div><div class="art-panel"><div class="art-head"><span>TACTICAL NETWORK / 01</span><span>● LIVE SIGNAL</span></div><div class="map-art"><div class="coast"></div><div class="route r1"></div><div class="route r2"></div><div class="pin p1">⌂</div><div class="pin p2">♛</div><div class="pin p3">⌁</div><div class="map-label">YEOSU · STRATEGIC OVERVIEW</div></div><div class="quote">“나는 방에서 안 나간다. <b>작전이 방으로 오게 만들면 된다.</b>”<br><span class="tiny">— 김지홍, 첫 번째 작전 메모</span></div><div class="float">현재 작전<strong>왕권 재신임 프로젝트</strong></div></div></div></div>
+<div id="game"><header class="topbar"><div class="brand"><div class="brandicon">知</div><div><div class="brandname">여수의 왕과 방구석 참모</div><div class="brandsub">STRATEGY ROOM · CAMPAIGN MODE</div></div></div><div class="top-meta"><span id="chapterTop">PROLOGUE</span><span class="live">자동 저장</span></div><div class="top-buttons"><button class="btn small" id="save">저장</button><button class="btn small" id="menu">메뉴</button></div></header><div class="layout"><aside class="sidebar"><div class="side-title"><div class="eyebrow">COMMAND DECK</div><b style="display:block;font-size:12px;margin-top:6px">작전 통제실</b></div><nav class="side-nav"><button class="nav active" data-page="story"><span class="nav-icon">▤</span>스토리</button><button class="nav" data-page="map"><span class="nav-icon">⌖</span>작전 지도</button><button class="nav" data-page="people"><span class="nav-icon">♙</span>인물 정보</button><button class="nav" data-page="journal"><span class="nav-icon">☷</span>작전 기록</button><button class="nav" data-page="help"><span class="nav-icon">?</span>도움말</button></nav><div class="side-objective"><b>현재 목표</b><span id="objective">채팅방에서 날아온 이상한 초대장을 확인한다.</span></div></aside><main id="main" class="center"></main><aside id="right" class="rightbar"></aside></div></div>
+<div id="toast" class="toast"></div><div id="modalBack" class="modal-back hidden"><div class="modal"><div class="modal-head"><div id="modalTitle" class="modal-title">알림</div><button id="modalClose" class="close">×</button></div><div id="modalBody" class="modal-body"></div></div></div>
+<script>
+'use strict';
+const KEY='yeosu_room_strategist_v1';
+const titles=['알림 999+','왕의 규칙','상욱의 보고서','호택의 인맥','승우의 장부','여론전 개시','스크린샷 대참사','항구 축제 작전','의자 백 개의 회의','충성 서약의 밤','마지막 준비','여수왕 최종전'];
+const subs=['단체 채팅방에서 날아온 초대장','왕권을 지탱하는 열두 가지 어처구니','충성심과 엑셀의 위험한 만남','돈으로 해결되지 않는 세 가지','오래된 친구가 숨겨 둔 파일','민심은 숫자인가, 댓글인가','삭제 버튼보다 빠른 캡처','방구석에서 지휘하는 항구 축제','참석자는 열세 명, 의자는 백 개','배신처럼 보이는 명령','마지막 작전의 체크리스트','왕관의 의미를 다시 정할 시간'];
+const episodes=[];
+function ep(title,subtitle,scenes,side){episodes.push({title,subtitle,scenes,side});}
+const opt=(label,desc,fx)=>({label,desc,fx});
+const scene=(title,place,speaker,body,choices,emblem='MISSION')=>({title,place,speaker,body,choices,emblem});
+// EPISODE 1
+ ep('알림 999+','단체 채팅방에서 날아온 초대장',[
+ scene('왕권 재신임 프로젝트','김지홍의 방 · 작전 브리핑','준성',[
+`준성은 음성 메시지를 보냈다. “나는 여수의 왕이다. 그건 변하지 않는다. 그런데 누가 왕의 자격을 공개 검증하자고 판을 벌였어.” 말 뒤로 4초간 침묵이 흘렀다. 그 침묵에는 왕의 위엄보다 와이파이 끊김에 대한 분노가 담겨 있었다.`,
+`도전장을 보낸 집단은 스스로를 ‘새벽물결단’이라 불렀다. 그들은 일주일 뒤 온라인 행사에서 여수의 왕권을 시민 투표로 재신임하겠다고 발표했다. 그저 인터넷 이벤트라고 넘길 수도 있었지만, 참여자가 많아지면 준성의 별명과 권위가 밈으로 박제될 가능성이 있었다. 왕이 가장 무서워하는 것은 패배보다 조롱이었다.`,
+`준성은 지홍에게 참모 자리를 제안했다. 지홍은 방에서 작전을 지휘하고, 현장 연락은 친구들이 맡는다. 회의 참석을 위해 밖에 나갈 필요도 없었다. 오히려 나가면 통신 지휘 체계가 무너진다는, 지홍에게 아주 편리한 명분까지 생겼다.`
+],[opt('공식 참모직을 수락하고 지휘 체계를 만든다','역할을 명확히 하면 혼란을 줄일 수 있다.',{intel:3,influence:4,morale:2,flags:['accepted_command']}),opt('조건부터 걸고 작전권 일부를 요구한다','왕의 참모라면 명령만 전달하는 사람이 되어서는 안 된다.',{influence:5,heat:3,flags:['demanded_authority']}),opt('장난처럼 받아치며 분위기를 떠본다','아직 이 사건이 어디까지 진지한지 확인할 필요가 있다.',{morale:4,intel:1,heat:-2,flags:['played_cool']})],'MISSION 01'),
+ scene('왕의 열두 조항','단체 채팅방 · 공지 게시판','상욱',[
+`상욱은 준성의 지시를 받아 ‘왕권 운영 규정’이라는 문서를 공유했다. 첫 장에는 금박 왕관 그림이 있었고, 두 번째 장부터는 조항이 끝없이 이어졌다. “제1조, 왕의 공지는 왕이 올린다. 제2조, 왕의 공지는 중요하다. 제3조, 왕의 중요 공지는 두 번 읽는다.” 지홍은 검색 기능으로 중복 조항을 세었다. 열두 개 중 네 개가 같은 내용이었다.`,
+`더 이상한 것은 제7조였다. ‘왕의 메시지를 3초 안에 확인하지 않을 경우 충성 점수가 감점될 수 있다.’ 상욱은 이를 통신 규율이라고 불렀다. 규정이 엄격할수록 현장에서 반발이 커질 수 있었다. 하지만 준성에게 대놓고 지적하면 상욱이 문서에 지홍의 이름을 추가해 공동 작성자로 만들지도 몰랐다.`,
+`지홍은 문서의 중복을 조용히 합칠지, 규정 전체를 비판할지, 아니면 상욱에게 실제 실행 가능성을 검증하게 할지 결정해야 했다.`
+],[opt('중복 조항을 조용히 합쳐 실용 규정으로 바꾼다','준성의 체면을 지키면서 문서의 품질을 올린다.',{intel:3,influence:2,sang:4,heat:-1,flags:['rules_fixed']}),opt('규정의 허점을 정리해 준성에게 직언한다','단기적으로 불편하더라도 문제를 지금 해결한다.',{intel:5,influence:3,sang:-2,morale:2,heat:2,flags:['rules_challenged']}),opt('상욱에게 실제 실행 가능성을 검증하게 한다','작성한 사람이 직접 시험하도록 하면 책임도 명확해진다.',{sang:3,intel:2,morale:1,flags:['rules_tested']})],'POLICY REVIEW'),
+ scene('첫 번째 여론전','온라인 광장 · 공개 게시판','새벽물결단 대변인',[
+`새벽물결단은 “왕권을 검증하자”라는 짧은 영상을 올렸다. 영상은 준성의 과거 공지 세 개를 이어 붙인 뒤, 마지막에 “왕의 공지가 너무 길다”라는 설문을 띄웠다. 공격이라기보다 정교하게 편집한 놀림이었다. 그런데 조회 수는 놀라울 정도로 빨랐다.`,
+`상욱의 반박문 초안은 “준성님은 길게 말할 수 있는 능력이 있으시다”였다. 지홍은 이대로 게시하면 상대가 아니라 우리 편이 먼저 밈이 될 것을 확신했다. 호택은 홍보 업체를 부를 수 있다고 했고, 승우는 데이터가 더 쌓일 때까지 기다리자고 했다. 제한 시간은 20분이었다.`,
+`급하게 맞받아치면 관심을 얻지만 열기가 오른다. 분석 자료를 공개하면 설득력은 있지만 시간이 든다. 유머로 받아치면 상대의 공격을 무력화할 수 있지만 왕이 농담을 견딜 준비가 돼 있어야 한다.`
+],[opt('상대 영상의 통계를 분석해 차분한 반박 자료를 올린다','조회 수의 증가 추세와 실제 지지 비율을 분리한다.',{intel:5,influence:3,heat:1,flags:['first_data_response']}),opt('왕의 공지가 길다는 지적을 농담으로 인정한다','상대를 웃음의 독점자로 두지 않는다.',{morale:5,influence:2,heat:-2,flags:['first_joke_response']}),opt('호택의 홍보 인맥으로 응답을 빠르게 띄운다','속도와 노출을 우선한다. 비용은 감수해야 한다.',{cash:-5,influence:7,heat:5,hotek:3,flags:['first_pr_response']})],'PUBLIC RESPONSE'),
+ scene('긴급 브리핑: 왕은 왜 왕인가','단체 음성 회의 · 00:18','준성',[
+`첫 번째 온라인 브리핑 시간이 왔다. 준성은 카메라 앞에 앉았고, 상욱은 화면 밖에서 자료를 넘기기로 했다. 지홍은 채팅으로 핵심 문장을 보냈다. 그런데 준성은 원고를 읽다가 “저는 여수의 왕으로서, 여수의 왕이기 때문에, 왕의…”에서 멈췄다. 상욱이 급히 다음 장을 넘겼지만 다음 장에는 표지만 있었다.`,
+`사람들은 완벽한 연설보다 솔직한 반응을 기억하기도 한다. 지홍은 짧은 문장을 띄워 준성을 구하거나, 상욱에게 시연을 시켜 시간을 벌거나, 기술 문제를 선언하고 브리핑을 연기할 수 있었다.`,
+`이 결정은 친구들의 신뢰뿐 아니라 위기 상황을 다루는 방식에도 영향을 줄 것이다. 왕의 위엄을 지킬 것인가, 왕의 인간적인 면을 드러낼 것인가.`
+],[opt('왕의 핵심 업무는 민원을 읽는다는 한 문장을 띄운다','설명 대신 이해할 수 있는 약속 하나를 제시한다.',{influence:5,morale:3,intel:2,heat:-1,flags:['briefing_saved']}),opt('상욱에게 60초 자료 시연을 시켜 시간을 번다','상욱의 실행력을 활용한다. 단, 무슨 일이 생길지는 모른다.',{sang:4,morale:-1,intel:2,heat:1,flags:['briefing_delayed']}),opt('기술 점검을 선언하고 브리핑을 연기한다','어색한 장면을 더 큰 사고로 키우지 않는다.',{intel:3,heat:-3,influence:-1,flags:['briefing_postponed']})],'FIRST CHECKPOINT'),
+ scene('체크포인트 01: 화면 속 왕관','김지홍의 방 · 심야','김지홍',[
+`브리핑이 끝난 뒤 지홍은 오늘의 로그를 정리했다. 작전은 성공과 실패로 깔끔하게 나뉘지 않았다. 어떤 대응은 관심을 끌었고, 어떤 대응은 조용히 신뢰를 쌓았다. 한 가지는 확실했다. 준성은 여전히 여수의 왕이었지만, 왕의 권위를 지탱하는 건 왕관 그림이 아니라 주변 사람들이 얼마나 일을 믿고 맡길 수 있는지였다.`,
+`상욱은 “다음에는 더 잘하겠습니다”라는 메시지를 보냈다. 뒤이어 “정말 더 잘하겠습니다”, “이 메시지는 중복 아닙니다”가 연달아 왔다. 승우는 내일 자료를 보내겠다고 했고, 호택은 비용 청구서를 아직 발행하지 않았다.`,
+`첫 작전은 끝났다. 왕권 재신임 행사까지 지홍은 정보, 영향력, 자금, 사기, 그리고 친구들의 신뢰를 모아야 한다.`
+],[opt('작전 기록을 남기고 다음 장으로 이동한다','오늘의 실수와 성과를 기억한다.',{intel:2,morale:2,flags:['chapter1_complete']})],'CHECKPOINT CLEAR')
+],{title:'왕실 간식 예산 논쟁',text:'상욱이 작전실의 간식 구매 목록을 만들었다. 항목은 물, 과자, 물, 다른 과자, 물의 대체품으로 적혀 있었다. 상욱은 “모두 작전에 필요한 보급품”이라고 진지하게 설명했다.',choices:[opt('품목을 실제 이름으로 통일한다','다음 구매에서 중복을 막는다.',{intel:2,cash:2,sang:2}),opt('상욱에게 예산 담당 역할을 맡기고 확인표를 준다','작은 업무부터 책임을 연습한다.',{sang:4,morale:2})]});
+// EPISODE 2
+ ep('왕의 규칙','왕권을 지탱하는 열두 가지 어처구니',[
+ scene('왕권의 기초 공사','준성의 온라인 집무실','준성',[
+`다음 날, 준성은 개정판을 발표했다. 제목은 ‘열두 조항에서 열한 조항으로: 왕의 효율화 선언’이었다. 중복 조항 하나를 지웠다는 사실이 마치 역사적 개혁처럼 포장돼 있었다.`,
+`문제는 규정을 고치는 것보다 규정이 왜 필요한지 합의하는 일이었다. 준성은 자신의 권위가 약해진다고 느끼면 제안을 공격으로 받아들였다. 상욱은 존칭을 세 겹으로 덧붙였고, 지홍은 규정을 왕의 권리만이 아니라 사람들이 혼란 없이 움직이게 하는 약속으로 설명하기로 했다.`,
+`문서 댓글, 비공개 설문, 상욱의 현장 이야기 중 어디서부터 불만을 확인할지 선택해야 했다. 숫자는 빠르지만 맥락을 잃을 수 있고, 대화는 느리지만 숨은 문제를 드러낼 수 있다.`
+],[opt('댓글을 분류해 반복되는 불만부터 뽑는다','많이 언급되는 문제와 실제 심각한 문제는 다를 수 있다.',{intel:5,influence:2,flags:['rule_comments']}),opt('상욱에게 현장 의견을 듣게 한다','충성심을 현장 관찰 능력으로 바꿔 본다.',{sang:4,morale:2,flags:['rule_interviews']}),opt('준성과 대화해 양보할 수 없는 기준을 확인한다','왕이 지키려는 것과 사람들이 원하는 것을 분리한다.',{influence:3,intel:2,heat:-1,flags:['rule_redlines']})],'MISSION 02'),
+ scene('제7조의 반란','단체 채팅방 · 실시간 설문','상욱',[
+`상욱이 만든 내부 설문은 질문 다섯 개였고, 답변 선택지는 전부 ‘준성님을 지지합니다’의 다른 표현이었다. 상욱은 “모두가 같은 방향을 선택하도록 설계했다”고 자랑했다. 결과는 100% 지지였지만 응답자는 세 명뿐이었다.`,
+`상욱은 악의가 없었다. 그는 준성이 원하는 결과를 만드는 것이 충성이라고 믿었다. 하지만 잘못된 수치로 왕을 안심시키면 실제 위험이 다가왔을 때 대비하지 못한다. 지홍은 상욱을 망신 주지 않으면서 설문을 고쳐야 했다.`,
+`익명 설문을 다시 만들지, 응답을 넓게 받거나, 결과는 비공개로 두고 내부 동기부여에만 사용할지 결정해야 했다.`
+],[opt('상욱과 함께 익명 설문을 다시 설계한다','질문을 중립적으로 만들고 응답자 수를 공개한다.',{intel:5,sang:5,morale:2,flags:['honest_survey']}),opt('실제 응답자를 넓혀 새 설문을 진행한다','관계를 잠시 미뤄 두고 신뢰성을 확보한다.',{intel:7,influence:2,sang:-1,heat:1,flags:['wide_survey']}),opt('100% 지지율은 비공개로 둔다','거짓을 확산하지 않되 분위기는 살린다.',{morale:5,sang:2,intel:-1,flags:['private_poll']})],'DATA INTEGRITY'),
+ scene('규정에 없는 사람들','온라인 민원 게시판','김지홍',[
+`자료가 쌓이자 불만의 핵심이 보였다. 사람들은 왕이 있다는 사실보다, 공지에 답하지 않았다는 이유로 놀림을 받거나 일이 늦어진다는 점을 불편해했다. ‘왕을 없애자’는 의견은 적었다. 대신 ‘왕이 일하는 방식은 바뀌어야 한다’는 말이 반복됐다.`,
+`준성에게 보여 주면 정책을 고칠 가능성이 있지만, 그는 불신으로 읽을 수도 있다. 완곡하게 요약하면 받아들이기 쉽지만 문제의 심각성이 흐려진다. 숫자가 무엇을 의미하는지 설명하는 사람이 필요했다.`,
+`지홍은 불만을 세 가지 개선안으로 바꾸거나, 원자료를 그대로 보여 주거나, 상욱과 함께 표현이 오해를 부르는지 확인할 수 있었다.`
+],[opt('불만을 세 가지 개선안으로 바꿔 전달한다','비판 대신 실행 가능한 수정안으로 제시한다.',{influence:5,intel:3,morale:3,heat:-1,flags:['three_reforms']}),opt('원자료를 그대로 보여 주고 준성이 판단하게 한다','참모가 해석을 지나치게 덧붙이지 않는다.',{intel:4,sang:1,heat:2,flags:['raw_data']}),opt('상욱과 함께 표현의 문제를 확인한다','문제를 함께 발견하면 책임도 공유할 수 있다.',{sang:4,intel:2,morale:2,flags:['shared_review']})],'FIELD NOTES'),
+ scene('열한 조항의 공개 시험','온라인 규정 설명회','준성',[
+`준성은 개정 규정을 공개 설명하기로 했다. 이번에도 원고가 길어졌다. 상욱이 “간결하게”라고 적힌 메모를 보여 줬지만, 준성은 그 메모를 새 조항으로 오해하고 “간결함을 명문화하겠다”고 답했다.`,
+`질문이 쏟아졌다. 전부 받으면 시간 안에 끝낼 수 없고, 불편한 질문을 무시하면 편집된 장면으로 돌아다닐 수 있다. 지홍은 질문을 주제별로 묶고 답변 가능한 것부터 공개하는 방식을 제안했다.`,
+`마지막 질문은 이미 준비돼 있었다. ‘왕은 왜 왕인가?’ 이번에는 어떻게 답해야 할까?`
+],[opt('질문을 공개 분류하고 답변 완료 여부를 표시한다','누락된 질문이 없도록 추적 가능한 구조를 만든다.',{intel:4,influence:5,heat:-2,flags:['open_qa']}),opt('어려운 질문 세 개를 골라 준성이 직접 답하게 한다','피하지 않는 태도를 보여 주는 데 집중한다.',{morale:3,influence:4,heat:3,flags:['hard_questions']}),opt('설명회를 짧게 끝내고 상세 답변 문서를 배포한다','실시간 실수 위험을 줄인다.',{intel:3,cash:-2,heat:-2,flags:['written_answers']})],'OPEN SESSION'),
+ scene('체크포인트 02: 규칙의 주인','김지홍의 방 · 정리 노트','김지홍',[
+`설명회가 끝나자 가장 먼저 바뀐 건 규정의 글자 수였다. 사람들의 반응은 천천히 바뀌었다. 하지만 이제는 불만을 말할 수 있는 통로가 생겼다.`,
+`상욱은 설문 제작법을 다시 배우겠다고 했다. 지홍은 ‘응답자 수를 제목보다 크게 쓰기’라는 첫 과제를 보냈다. 준성은 개정판 표지에 자기 이름을 더 크게 넣어 달라고 했다. 개선은 완벽하지 않았지만 진행 중이었다.`,
+`다음 장에서는 상욱의 보고서에 등장한 이상한 숫자를 확인하게 된다. 보고서가 가리키는 것은 실수일 수도 있고, 누군가가 의도적으로 감춘 거래일 수도 있었다.`
+],[opt('상욱의 원본 보고서를 요청한다','다음 문제를 조사하기 위한 기본 자료를 확보한다.',{intel:3,sang:2,flags:['chapter2_complete']})],'CHECKPOINT CLEAR')
+],{title:'의자 13번은 어디로 가야 하는가',text:'준성은 회의장 의자 13번을 왕의 오른쪽에 놓으라고 했고, 상욱은 왼쪽이 더 왕답다고 주장했다. 승우는 의자 번호는 참석자 안내를 위한 것이라고 지적했다. 이 논쟁에 9분이 쓰였다.',choices:[opt('의자 번호를 지우고 좌석 안내를 새로 만든다','상징보다 안내 기능을 우선한다.',{intel:2,morale:2,heat:-1}),opt('의자를 중앙에 두고 중립 좌석이라 부른다','논쟁을 농담으로 바꾼다.',{morale:4,influence:1})]});
+// EPISODE 3
+ ep('상욱의 보고서','충성심과 엑셀의 위험한 만남',[
+ scene('엑셀 파일: 최종_진짜최종_7','김지홍의 방 · 다운로드 폴더','김지홍',[
+`상욱이 보낸 파일 이름은 ‘여수왕_운영현황_최종_진짜최종_7.xlsx’였다. 표지는 왕실 문서처럼 꾸며져 있었지만 셀 색깔은 일곱 종류였고, 합계 수식은 두 줄을 건너뛰었다. 날짜는 미래와 과거가 뒤섞여 있었다.`,
+`보고서상 예산은 충분했는데 실제 준비팀은 테이프와 종이컵이 부족했다. 누군가 돈을 빼돌렸다는 증거는 없었다. 단순한 계산 실수일 수도 있었다. 그러나 재정이 엉망이라는 소문은 새벽물결단에게 좋은 공격 재료가 될 수 있었다.`,
+`상욱은 열심히 일했다. 혼내기만 하면 다음 보고서는 더 화려하고 덜 정확해질 것이다. 지홍은 수식 감사, 증빙 수집, 상욱과의 대화 중 순서를 정해야 했다.`
+],[opt('수식과 날짜부터 감사한다','오류를 증거로 확인한 뒤 다음 조치를 정한다.',{intel:6,sang:2,flags:['audit_formula']}),opt('상욱과 화면 공유로 보고서를 함께 검토한다','실수를 숨기지 않는 작업 방식을 만든다.',{sang:6,morale:3,intel:2,flags:['audit_together']}),opt('지출 증빙부터 모아 예산의 흐름을 확인한다','계산 실수와 실제 누락을 구분한다.',{intel:4,cash:2,heat:2,flags:['audit_receipts']})],'MISSION 03'),
+ scene('합계는 맞는데 돈이 없다','온라인 회계 시트','상욱',[
+`수식을 바로잡자 예산은 실제로 남아 있었다. 다만 같은 물품이 세 번 등록돼 있었고, ‘회의용 의자’가 ‘전략적 좌석 확보 자산’이라는 이름으로 다시 적혀 있었다. 주문 목록이 서로 다른 이름을 사용했기 때문에 준비팀은 물품이 충분하다고 오해했다.`,
+`상욱은 조용히 말했다. “준성님이 숫자를 물어보시면 멋있게 설명하고 싶었습니다.” 어처구니없었지만 보고서가 복잡해진 이유를 설명해 줬다. 데이터를 단순화하면 체면이 상할 수 있고, 지금 그대로 두면 혼란이 반복될 것이다.`,
+`상욱에게 표준과 체크리스트를 만들게 하거나, 지홍이 템플릿을 만들거나, 예산 목록을 공개해 신뢰를 회복할 수 있다.`
+],[opt('상욱에게 숫자 표준과 체크리스트를 만들게 한다','책임을 맡기되 검증 기준을 명확히 한다.',{sang:5,intel:3,morale:2,flags:['sang_checklist']}),opt('지홍이 보고서 템플릿을 새로 만들어 배포한다','빠르게 품질을 안정시키지만 업무가 몰린다.',{intel:4,influence:3,morale:-1,flags:['new_template']}),opt('예산 목록을 모두 공개한다','투명성은 높아지지만 논쟁도 생길 수 있다.',{influence:5,heat:3,cash:1,flags:['budget_open']})],'AUDIT FINDING'),
+ scene('회의용 의자의 정치학','온라인 회의 · 화면 속 재고표','준성',[
+`준성은 보고를 듣고 “회의용 의자는 전략적 자산이 맞다”고 선언했다. 상욱은 안도했지만, 지홍은 그것이 해결책이 아니라 이름 바꾸기라는 걸 알았다. 준성은 체면을 지키고 싶어 했다. 동시에 준비팀은 정말로 의자가 필요했다.`,
+`왕의 표현을 살리면서 ‘전략적 자산인 의자는 행사장에 배치되어야 한다’고 쓸 수도 있다. 잘못된 명칭을 표준화하거나, 우선 의자를 주문하고 문서는 나중에 고칠 수도 있었다.`,
+`문제는 작아 보이지만, 사람들은 실제로 일할 수 있는 환경인지로 지도자를 판단한다. 지홍은 왕관의 명칭보다 현장의 의자 수를 중요하게 여겼다.`
+],[opt('왕의 표현은 살리되 배치 기한을 붙인다','체면을 유지하면서 실행 책임을 만든다.',{influence:3,sang:2,heat:-1,flags:['chair_deadline']}),opt('잘못된 명칭을 지적하고 표준화한다','같은 오류가 다시 나타나지 않도록 한다.',{intel:4,influence:2,sang:-2,flags:['chair_standard']}),opt('우선 의자를 주문하고 문서는 다음 회의로 넘긴다','현장의 급한 문제를 먼저 해결한다.',{cash:-4,morale:4,heat:-1,flags:['chair_ordered']})],'OPERATIONS'),
+ scene('상욱의 17번째 메시지','단체 채팅방 · 새벽 01:12','상욱',[
+`상욱은 장문의 사과문을 보냈다. 같은 사과문이 세 번 도착했고, 네 번째 제목은 ‘진짜 사과문’이었다. 내용은 의외로 솔직했다. 그는 준성의 따까리라는 말을 싫어하지 않았지만, 아무 생각 없이 명령만 전달하는 사람으로 보이고 싶지는 않았다.`,
+`지홍은 충성심을 버릴 필요는 없다고 생각했다. 필요한 건 실행 전에 한 번 더 확인하는 습관이었다. 상욱에게 검토 권한을 줄지, 독립 업무를 맡길지, 당분간 중요한 일에서 떼어 놓을지 선택해야 했다.`,
+`사람을 도구로 볼 것인지, 성장할 수 있는 동료로 볼 것인지. 지홍은 답장을 쓰기 시작했다.`
+],[opt('상욱에게 사전 검토권과 작은 작전을 맡긴다','충성심과 판단력을 함께 키운다.',{sang:7,morale:4,influence:2,flags:['sang_authority']}),opt('당분간 단계별 확인을 요구한다','실수 위험을 줄이지만 자율성은 낮다.',{intel:2,sang:1,heat:-1,flags:['sang_check_first']}),opt('준성에게 업무 체계 변경을 제안한다','개인의 실수보다 시스템의 책임을 본다.',{influence:4,intel:2,sang:2,heat:1,flags:['workflow_reform']})],'TRUST TEST'),
+ scene('체크포인트 03: 숫자의 무게','김지홍의 방 · 정산 완료','김지홍',[
+`보고서 오류는 정리됐고 준비팀에는 필요한 물품이 전달됐다. 상욱은 파일 이름을 ‘운영현황_검증완료_최종’으로 바꿨다. 지홍은 숫자 하나를 고친 것이 아니라 숫자가 현실과 연결되는 길을 고쳤다고 기록했다.`,
+`준성은 결과를 칭찬하면서도 “다음 보고서는 금박 표지를 추가하자”고 했다. 지홍은 그 요청을 보류 목록에 넣었다. 보기 좋은 표지보다 누구나 이해할 수 있는 자료가 중요했다.`,
+`다음 장에서는 호택의 인맥이 작전에 들어온다. 돈과 연락처가 문을 열 수는 있지만, 문을 열고 들어간 뒤 무엇을 할지는 사람이 결정해야 한다.`
+],[opt('정산을 마감하고 호택에게 연락한다','자원과 인맥이 어떤 역할을 할 수 있는지 확인한다.',{intel:2,sang:2,flags:['chapter3_complete']})],'CHECKPOINT CLEAR')
+],{title:'왕실 간식 정산 퀴즈',text:'상욱이 간식 정산 퀴즈를 만들었다. 문제는 보기가 전부 “준성님 판단이 옳습니다”의 변형이라는 것. 상욱은 “정답률 100%”라고 자랑했다.',choices:[opt('보기부터 중립적으로 다시 만든다','학습이 되도록 질문을 바꾼다.',{intel:2,sang:2}),opt('상욱에게 정답 근거를 설명하게 한다','결과보다 이해를 확인한다.',{sang:3,morale:2})]});
+// EPISODE 4
+ ep('호택의 인맥','돈으로 해결되지 않는 세 가지',[
+ scene('인맥이라는 이름의 미로','온라인 초대장 · VIP 연결망','호택',[
+`호택은 답장을 보내자마자 세 개의 초대장과 두 개의 연락처를 보냈다. “이 정도면 문은 열려.” 누구에게나 연락할 수 있다는 게 호택의 장점이었다. 연락할 수 있다는 사실과 실제로 도움을 받을 수 있다는 사실을 가끔 같은 것으로 취급한다는 게 단점이었다.`,
+`그가 연결해 주겠다는 사람은 행사 기획자, 온라인 홍보 제작자, 여러 모임의 일정 조정자였다. 각각 도움이 될 수 있지만 예산과 목적이 달랐다. 모든 일을 인맥으로 해결하려 하면 지출이 늘고, 부탁을 너무 많이 하면 더 큰 부탁이 돌아올 수 있었다.`,
+`지홍은 필요한 연결만 요청하려 했다. 돈은 문을 열 수 있지만 신뢰를 대신할 수는 없다.`
+],[opt('행사 실무자를 연결해 일정과 비용을 검증한다','현실적인 도움부터 요청한다.',{intel:3,hotek:4,cash:-1,flags:['hotek_ops']}),opt('홍보 제작자에게 작은 시범 캠페인을 맡긴다','노출 효과를 시험한 뒤 확대한다.',{influence:4,hotek:3,cash:-3,flags:['hotek_pr']}),opt('인맥은 비상용으로 남기고 직접 연락망을 만든다','당장의 이익은 작지만 의존도를 낮춘다.',{intel:3,morale:2,heat:-1,flags:['independent_network']})],'MISSION 04'),
+ scene('세 개의 문, 하나의 열쇠','화상 회의 · 실무자 소개','호택',[
+`기획자는 일정표를 펼치며 행사를 진행할 수 있다고 했다. 제작자는 여론을 움직일 수 있다고 장담했다. 조정자는 두 사람의 일정이 겹친다고 알려 줬다. 셋 다 유용했지만 책임자를 정하지 않으면 서로의 일을 기다리다 시간을 놓칠 판이었다.`,
+`호택은 “내가 다 연결했잖아. 이제 알아서 잘 되겠지?”라고 말했다. 지홍은 연결이 시작일 뿐이라고 설명했다. 책임자, 비용, 납기, 실패했을 때의 대안을 정해야 했다. 호택은 처음에는 조금 서운해했지만 곧 질문을 던지기 시작했다.`,
+`계약 조건을 먼저 정할지, 시범 운영으로 실력을 확인할지, 호택의 추천을 믿고 한 번에 큰 계약을 진행할지 선택하라.`
+],[opt('각 담당자의 역할과 결과물을 문서로 합의한다','성공 조건과 책임을 명확히 한다.',{intel:4,hotek:3,influence:2,flags:['clear_contracts']}),opt('작은 시범 행사를 열어 실력을 확인한다','실제 결과로 판단할 수 있다.',{cash:-3,intel:2,hotek:4,morale:2,flags:['pilot_event']}),opt('호택의 추천을 믿고 대형 캠페인을 시작한다','빠르게 추진하지만 지출이 크다.',{cash:-8,influence:8,hotek:2,heat:5,flags:['big_campaign']})],'NETWORK CHECK'),
+ scene('무료라고 적힌 견적서','온라인 계약 검토실','김지홍',[
+`호택이 보낸 견적서에는 ‘연결 수수료 무료’라고 쓰여 있었다. 작은 글씨를 읽자 후속 홍보, 추가 회의, 긴급 변경 비용이 별도였다. 무료라는 단어가 틀린 건 아니었다. 다만 무료인 것은 문을 여는 순간뿐이었다.`,
+`호택은 악의가 없었다. 자신이 아는 사람들의 능력을 믿었고, 조건을 세세하게 읽는 일은 잘하지 않았다. 지금 지적하면 앞으로 계약은 투명해질 수 있지만, 진행 중인 일을 중단하면 일정이 흔들릴 수 있었다.`,
+`추가 비용과 취소 조건을 다시 합의하거나, 이번 계약은 진행하고 다음부터 기준을 바꾸거나, 계약을 중단하고 독립적인 대안을 찾을 수 있다.`
+],[opt('추가 비용과 취소 조건을 명확히 적어 재합의한다','관계를 끊지 않고 조건을 바로잡는다.',{intel:3,hotek:5,cash:2,flags:['renegotiated']}),opt('이번 계약은 진행하되 이후 계약은 새 기준을 적용한다','일정을 지키고 학습한 내용을 반영한다.',{influence:2,hotek:1,cash:-3,morale:1,flags:['honored_contract']}),opt('계약을 중단하고 독립적인 대안을 찾는다','손실을 제한하지만 일정과 관계에 부담이 생긴다.',{cash:1,intel:3,hotek:-4,heat:2,flags:['cancelled_contract']})],'FINE PRINT'),
+ scene('인맥은 누구의 것인가','음성 통화 · 호택의 개인 채널','호택',[
+`호택은 잠시 말을 아꼈다. “내가 아는 사람이 많다는 게 내 능력의 전부처럼 취급될 때가 있어.” 그는 연락처를 보내고 자리를 마련하는 일은 잘했지만, 일이 끝난 뒤 결과를 평가하는 데에는 서툴렀다. 지홍은 그가 단지 돈 많은 해결사로만 남길 원하지 않는다는 걸 깨달았다.`,
+`호택에게 후속 관리를 맡기면 네트워크가 장기 자산이 될 수 있다. 비용 관리 역할을 맡기면 지출 구조를 배울 수 있다. 긴급 연결 담당자로 남겨 두고 품질 관리는 다른 사람에게 맡기는 방법도 있다.`,
+`친구에게 일을 맡긴다는 것은 권한을 주는 동시에 실패할 공간도 주는 일이다. 지홍은 호택에게 어느 정도 책임을 맡길지 결정했다.`
+],[opt('협력자 평가와 후속 관리를 호택의 정식 역할로 둔다','연락을 결과와 연결하는 능력을 키운다.',{hotek:7,influence:3,flags:['hotek_manager']}),opt('비용표와 계약 확인을 함께 맡긴다','인맥에 현실적인 관리 능력을 더한다.',{hotek:4,intel:3,cash:2,flags:['hotek_budget']}),opt('긴급 연결은 호택에게, 품질 관리는 별도 담당자에게 맡긴다','잘하는 일을 살리고 부담을 분리한다.',{hotek:2,morale:2,heat:-1,flags:['hotek_specialist']})],'ROLE DESIGN'),
+ scene('체크포인트 04: 열린 문 뒤','김지홍의 방 · 지출 대시보드','김지홍',[
+`몇 개의 연락은 실제 협력으로 이어졌고, 몇 개는 정중한 거절로 끝났다. 모든 문이 열리지는 않았지만 이제 어떤 문을 두드릴 만한지 구분할 수 있게 됐다. 호택은 새 스프레드시트를 보내며 “이번엔 수식 검토 완료”라고 썼다. 상욱의 보고서보다 놀라울 정도로 간결했다.`,
+`지홍은 인맥이 자원이 되려면 약속과 결과가 함께 있어야 한다고 기록했다. 그리고 ‘호택에게 표 계산을 맡기면 상욱이 서운해할 수 있음’이라고 덧붙였다. 작전은 숫자만큼이나 사람의 감정에 의해 움직였다.`,
+`다음 장에서는 승우가 오래된 채팅 기록과 알 수 없는 파일 하나를 들고 나타난다. 왕권 재신임 프로젝트는 처음 생각했던 것과 조금 다른 사건일 수 있었다.`
+],[opt('후속 비용을 정리하고 승우의 메시지를 확인한다','오래된 친구가 보낸 파일을 조사한다.',{intel:2,hotek:2,flags:['chapter4_complete']})],'CHECKPOINT CLEAR')
+],{title:'호택의 무료 초대장',text:'호택은 “비용 0원”이라고 적힌 초대장을 보냈다. 자세히 보니 입장료는 무료였지만 주차와 음료와 기념품은 별도였다. 호택은 “무료가 맞잖아?”라며 억울해했다.',choices:[opt('총비용 표를 만들어 함께 확인한다','자원 계획을 더 현실적으로 만든다.',{hotek:3,intel:2,cash:2}),opt('포함·별도 항목을 명시하도록 문구를 바꾼다','정보를 정확하게 전달한다.',{influence:2,hotek:2,heat:-1})]});
+// EPISODE 5
+ ep('승우의 장부','오래된 친구가 숨겨 둔 파일',[
+ scene('읽지 않은 파일','김지홍의 방 · 파일 분석기','승우',[
+`새벽 한 시, 승우에게서 파일 하나가 도착했다. 파일 이름은 ‘진짜_최종_진짜최종_v7.xlsx’였다. 지홍이 열어 보니 오래전 친구들이 장난처럼 만들었던 ‘여수 왕국 프로젝트’의 기록이 들어 있었다. 준성이 왜 여수의 왕이라고 불리게 됐는지, 상욱이 언제부터 준성의 따까리를 자처했는지, 호택이 어떤 비용을 대신 냈는지까지 어설픈 메모로 남아 있었다.`,
+`승우는 메시지를 보냈다. “이번 일을 계기로 다들 옛날 얘기를 다르게 기억하는 것 같아서. 숫자랑 기록은 남아 있잖아.” 파일에는 중요한 회의록도 있었지만, 농담과 진담이 섞여 있어 함부로 공개하면 친구 사이에 불필요한 상처가 날 수 있었다.`,
+`지홍은 파일의 진위를 살피면서도 기록이 언제나 진실 그 자체는 아니라는 점을 떠올렸다. 누가 적었는지, 어떤 목적으로 정리했는지, 빠진 내용은 없는지 확인해야 했다.`
+],[opt('기록을 시간순으로 정리해 사실과 추측을 분리한다','검증 가능한 자료를 먼저 만든다.',{intel:6,influence:2,seung:3,flags:['ledger_verified']}),opt('승우에게 기억을 보충해 달라고 묻는다','숫자에 기록자의 맥락을 더한다.',{seung:6,morale:2,intel:2,flags:['ledger_context']}),opt('원본은 비공개로 보관하고 요약만 만든다','친구들의 사적인 대화를 보호한다.',{morale:3,heat:-2,seung:2,flags:['ledger_private']})],'ARCHIVE'),
+ scene('왕관의 최초 발급일','단체 채팅방 · 4년 전 기록','지홍',[
+`자료에는 ‘왕관 발급일’이라는 이상한 항목이 있었다. 최초 기록은 준성이 친구들 사이에서 자신을 여수의 왕이라고 선언한 날이었다. 상욱은 그날부터 준성의 말을 공식 공지로 정리했고, 호택은 축하 기념품을 주문했고, 승우는 왕관 이모티콘을 백 번쯤 올렸다. 그 농담은 반복되면서 모두가 아는 별명이 됐다.`,
+`새벽물결단은 이 기록을 “가짜 왕권의 증거”로 부르려 했다. 하지만 기록을 그대로 보면 친구들 사이에서 시작된 놀이가 지금은 지역 커뮤니티의 영향력을 가진 상징으로 자라난 셈이었다. 핵심은 시작이 얼마나 엄숙했느냐보다 지금 어떤 책임을 지고 있느냐에 있었다.`,
+`지홍은 준성에게 과거를 숨기라고 할 수도, 모든 기록을 공개하라고 할 수도, 시작의 맥락과 현재의 책임을 함께 설명하라고 할 수도 있었다.`
+],[opt('처음부터 장난이었다는 사실까지 투명하게 공개한다','솔직하지만 왕의 권위가 흔들릴 수 있다.',{intel:3,influence:4,heat:3,flags:['origin_open']}),opt('현재의 활동 기록을 중심으로 답한다','과거의 농담보다 지금의 실적을 보여 준다.',{influence:3,intel:3,heat:-1,flags:['origin_present']}),opt('승우와 함께 당시 대화 맥락을 설명하는 글을 쓴다','친구들의 관계와 현재의 책임을 함께 담는다.',{seung:4,influence:2,morale:2,flags:['origin_context']})],'ORIGIN'),
+ scene('증언의 순서','비공개 음성 회의','승우',[
+`승우는 기억나는 일을 차례로 이야기했다. 준성은 장난으로 시작한 왕국을 점점 진지하게 받아들였고, 상욱은 규칙을 만들어 체계를 세우려 했다. 지홍은 늘 방에서 채팅만 읽었지만, 이상하게도 갈등이 생길 때마다 메시지 한 줄로 상황을 정리하는 역할을 맡았다. 호택은 돈과 인맥이 있으면 웬만한 일은 해결될 줄 알았고, 승우는 기록하는 사람으로 남았다.`,
+`“누가 잘못했다는 얘기가 아니라, 각자 어떤 역할을 했는지 알자는 거야.” 승우가 말했다. 그 말은 지홍에게도 적용됐다. 방 안에서 지휘하는 건 물리적으로 안전했지만, 사람들의 결정에 영향을 준다는 책임까지 사라지는 것은 아니었다.`,
+`지홍은 승우의 이야기를 어느 수준까지 작전에 반영할지 정했다. 개인의 기억은 소중하지만, 공식 발표에 넣을 자료는 검증된 범위여야 했다.`
+],[opt('승우를 기록 검증 담당자로 공식 합류시킨다','기억과 자료를 함께 확인한다.',{seung:5,intel:4,influence:2,flags:['seung_archivist']}),opt('승우는 자문만 맡고 최종 검토는 지홍이 한다','역할을 분리해 책임자를 명확히 한다.',{intel:3,morale:1,seung:2,flags:['seung_adviser']}),opt('과거사와 현재 작전을 분리해 다룬다','불필요한 감정싸움을 막는다.',{heat:-3,influence:1,seung:1,flags:['history_separated']})],'TESTIMONY'),
+ scene('표에 없는 항목','김지홍의 방 · 빈칸 목록','김지홍',[
+`장부의 마지막 시트에는 ‘측정되지 않는 것’이라는 제목이 있었다. 친구들의 농담, 서로의 실수를 덮어 준 순간, 말없이 기다려 준 시간은 점수로 표현되어 있지 않았다. 지홍은 숫자를 좋아했지만, 숫자만으로 작전 전체를 설명할 수는 없다는 사실을 인정했다.`,
+`왕권 재신임 투표에서 숫자는 중요하다. 그러나 신뢰는 한 번의 투표로 완전히 측정되지 않는다. 지홍은 승우에게 장부의 원본을 보호해 달라고 부탁하고, 공식적으로 사용할 자료만 별도 문서로 분리했다.`,
+`승우는 마지막으로 짧은 메시지를 보냈다. “언제든 말해. 예전처럼 채팅으로.” 지홍은 그 문장을 읽고, 오래된 관계가 완전히 사라진 것은 아닐지 모른다고 생각했다.`
+],[opt('검증된 장부를 작전 자료로 채택한다','전략의 근거를 강화한다.',{intel:5,influence:2,seung:2,flags:['ledger_adopted']}),opt('장부는 비공개 보관하고 요약 통계만 사용한다','사생활과 신뢰를 우선한다.',{morale:2,heat:-2,seung:3,flags:['ledger_summary']}),opt('측정하기 어려운 관계 지표도 별도 기록한다','정량 정보와 맥락을 함께 관리한다.',{intel:2,morale:4,influence:1,flags:['soft_metrics']})],'AUDIT'),
+ scene('체크포인트 05: 기억의 값','김지홍의 방 · 작전 노트','지홍',[
+`승우의 파일은 왕관을 무너뜨리지도, 단번에 정당화하지도 않았다. 대신 친구들이 어떤 과정을 거쳐 지금의 관계에 도달했는지 보여 줬다. 이제 여론전은 단순한 찬반 싸움이 아니라, 과거의 농담을 현재의 책임으로 바꾸는 작업이 됐다.`,
+`지홍은 다음 장을 위해 자료 폴더를 정리했다. 공개할 문서, 내부 참고 문서, 개인의 기억을 담은 기록을 구분했다. 작은 분류 작업이었지만, 실수로 모든 파일을 공개하는 참사는 예방할 수 있을 것 같았다.`
+],[opt('자료 보관 규칙을 확정하고 여론전 준비를 계속한다','다음 장의 공개 토론을 준비한다.',{intel:2,influence:2,heat:-1,flags:['chapter5_complete']})],'CHECKPOINT CLEAR')
+],{title:'파일 이름의 복수',text:'승우의 스프레드시트에는 비슷한 이름의 파일이 열세 개나 있었다. 지홍은 ‘진짜 최종’을 만든 뒤 파일명에 날짜와 버전을 넣도록 제안했다. 승우는 한숨을 쉬면서도 곧바로 적용했다.',choices:[opt('버전 관리 규칙을 만들고 공유한다','다음 자료 혼선을 줄인다.',{intel:3,seung:2}),opt('중복 파일은 목록만 정리하고 원본은 남긴다','기록 손실을 막는다.',{seung:3,morale:1,intel:1})]});
+// EPISODE 6
+ ep('여론전 개시','민심은 숫자인가, 댓글인가',[
+ scene('조회 수의 착시','온라인 광장 · 대시보드','호택',[
+`호택은 대시보드를 공유했다. 새벽물결단 영상의 조회 수는 빠르게 올랐지만, 댓글을 살펴보니 같은 문장을 반복하는 계정과 단순한 구경꾼의 반응이 많았다. 반대로 준성의 공지에는 조회 수가 적어도 자세한 질문과 구체적인 제안이 붙고 있었다. 어느 쪽이 실제 지지를 의미하는지는 숫자 하나로 결정할 수 없었다.`,
+`호택은 조회 수를 더 끌어올릴 광고를 제안했다. 상욱은 공지를 여러 채널에 동시에 올리자고 했다. 승우는 표본을 나눠 설문을 진행하자고 했다. 세 제안 모두 장단점이 있었다. 지홍은 무엇을 측정할지 먼저 정해야 한다고 판단했다.`,
+`목표는 상대를 압도하는 숫자를 만드는 게 아니라, 왕권 운영에 대한 실제 질문과 불만을 파악하는 것이었다. 클릭 한 번의 반응과 지속적인 참여를 같은 무게로 취급하지 않는 기준이 필요했다.`
+],[opt('작은 표본으로 익명 설문을 진행한다','편향 가능성을 밝히고 의견을 수집한다.',{intel:5,influence:2,heat:-1,flags:['survey_small']}),opt('댓글을 주제별로 분류해 반복되는 불만을 찾는다','즉시 바꿀 수 있는 문제를 발견한다.',{intel:3,influence:3,flags:['comment_coded']}),opt('홍보를 늘려 최대한 많은 반응을 모은다','도달 범위가 커지지만 소음도 증가한다.',{influence:5,heat:4,cash:-3,flags:['reach_boost']})],'POLLING'),
+ scene('질문 상자','온라인 공개 게시판','상욱',[
+`상욱은 질문 상자를 열었다가 240개의 질문을 한꺼번에 받았다. 그중 70개는 “왕은 정확히 무슨 일을 하나요?”, 52개는 “공지의 글자 크기를 키워 주세요”, 31개는 왕관 이모티콘에 관한 것이었다. 나머지는 제각각이었다. 상욱은 “왕권에 대한 관심이 폭발했다”고 보고했다.`,
+`지홍은 질문을 단순히 지지와 반대로 나누는 대신, 운영·예산·의사결정·소통·상징의 다섯 범주로 나누자고 했다. 같은 질문이 반복된다는 것은 귀찮은 일이면서 동시에 안내가 부족하다는 신호였다.`,
+`상욱은 분류 작업을 맡겠다고 했지만, 지홍이 보기에는 질문을 자기 방식대로 해석하지 않도록 기준표가 필요했다.`
+],[opt('분류 기준을 공개하고 중복 질문을 묶는다','질문을 지우지 않고 반복 패턴을 드러낸다.',{intel:4,influence:3,sang:3,flags:['questions_sorted']}),opt('상욱에게 초안을 맡기고 지홍이 표본을 재검토한다','속도를 높이되 검증을 유지한다.',{sang:2,intel:3,morale:1,flags:['questions_reviewed']}),opt('가장 많은 세 질문에 먼저 답한다','빠른 대응이지만 작은 목소리는 뒤로 밀린다.',{influence:4,heat:2,flags:['top_questions']})],'QUESTION BOX'),
+ scene('불편한 질문에도 답하기','온라인 공개 회의 · 질의응답','준성',[
+`질문 시간에 누군가 “왕이라는 호칭이 사람들의 의견보다 앞서는 것 아니냐”고 물었다. 상욱은 바로 반박하려 했지만 준성이 손짓으로 막았다. 준성은 잠시 생각한 뒤 “호칭은 내가 쓰지만, 운영이 잘못되면 비판받아야 한다”고 말했다. 지홍이 미리 보낸 문장을 조금 바꿔 읽은 것이었다.`,
+`그 답변 뒤에 분위기는 부드러워졌지만, 모든 질문이 사라진 것은 아니었다. 일부는 준성이 책임질 범위를 더 명확히 해 달라고 요청했다. 이 순간을 위기라고 볼 수도, 왕의 역할을 정리할 기회라고 볼 수도 있었다.`,
+`지홍은 공개 답변을 한 번으로 끝낼지, 후속 약속을 문서화할지, 비판을 포함한 요약본을 공개할지 정해야 했다.`
+],[opt('답변과 실행 기한을 함께 공개한다','말이 실제 행동으로 이어지도록 한다.',{influence:4,intel:2,heat:-1,flags:['public_commitments']}),opt('질문과 답을 전부 기록하고 정기 보고를 약속한다','지속적인 설명 구조를 만든다.',{intel:4,morale:2,influence:1,flags:['regular_reports']}),opt('준성의 짧은 사과와 감사 메시지로 마무리한다','감정은 달래지만 세부 약속은 부족하다.',{morale:3,influence:1,heat:-1,flags:['brief_apology']})],'LIVE Q&A'),
+ scene('조용한 목소리','김지홍의 방 · 익명 제안함','지홍',[
+`익명 제안함에는 눈에 띄지 않는 글 하나가 들어 있었다. “왕을 없애자는 건 아니에요. 다만 공지를 읽고도 무엇이 바뀌는지 모르겠어요.” 글은 조회 수가 적고 표현도 차분했지만, 여러 다른 질문과 정확히 맞닿아 있었다. 대형 논쟁에는 묻히기 쉬운 요구였다.`,
+`지홍은 누구의 목소리가 더 크냐가 아니라, 어떤 문제가 반복되는지 보는 습관을 들이기로 했다. 공개적으로 답변하기 전에 해당 제안이 실제 운영 과정에서 해결할 수 있는 문제인지 확인했다.`,
+`개별 제안의 작성자를 추적하면 더 많은 정보를 얻을지도 모르지만, 익명이라는 약속을 어길 위험도 있었다. 지홍은 분석과 사생활 보호 사이에서 기준을 세워야 했다.`
+],[opt('익명성을 유지한 채 제안의 내용만 검토한다','개인의 보호와 개선 가능성을 함께 챙긴다.',{morale:3,intel:3,heat:-2,flags:['anonymous_safe']}),opt('공개 후속 질문을 남겨 자발적인 설명을 요청한다','추가 정보는 얻되 참여는 선택으로 둔다.',{influence:3,intel:2,morale:2,flags:['voluntary_followup']}),opt('제안을 즉시 시범 정책으로 바꿔 본다','빠른 실험으로 실효성을 확인한다.',{influence:4,cash:-2,heat:2,flags:['pilot_policy']})],'QUIET FEEDBACK'),
+ scene('체크포인트 06: 반응의 온도','작전실 · 여론 보고서','지홍',[
+`보고서는 단순한 승패 점수 대신 반복되는 질문, 해결 가능한 요청, 추가 검증이 필요한 주장을 구분했다. 준성은 “사람들이 모두 나를 좋아하게 만들 수는 없겠지”라고 했다. 지홍은 채팅에 “그게 목표가 되면 숫자만 조작하게 돼”라고 답했다.`,
+`여론전의 첫 규칙은 모두를 만족시키겠다는 약속을 하지 않는 것. 두 번째 규칙은 약속한 일을 기록하고 결과를 공개하는 것. 세 번째 규칙은 숫자를 보여 줄 때 숫자가 말하지 못하는 것까지 설명하는 것이었다.`
+],[opt('여론 보고서를 기준 문서로 등록한다','다음 위기에서 판단 기준으로 활용한다.',{intel:2,influence:3,flags:['chapter6_complete']})],'CHECKPOINT CLEAR')
+],{title:'왕관 이모티콘 조사',text:'질문 상자에서 가장 긴 논쟁은 왕관 이모티콘을 공지 제목 앞에 붙여야 하는지에 관한 것이었다. 지홍은 실험적으로 일주일 동안 제목에서 왕관을 빼고 클릭률뿐 아니라 문의의 이해도까지 비교하기로 했다.',choices:[opt('일주일 실험을 공지한다','가벼운 논쟁도 데이터로 확인한다.',{intel:2,influence:2,heat:-1}),opt('상징은 유지하고 공지 제목을 짧게 만든다','상징과 가독성을 함께 지킨다.',{sang:2,influence:1,morale:1})]});
+// EPISODE 7
+ ep('스크린샷 대참사','삭제 버튼보다 빠른 캡처',[
+ scene('잘린 한 문장','김지홍의 방 · 긴급 알림','상욱',[
+`오전 8시 12분, 상욱이 메시지를 열 번 연달아 보냈다. 준성이 내부 회의에서 했던 농담이 잘린 스크린샷으로 퍼지고 있었다. 캡처에는 “투표에서 지면 내가 만든 투표를 또 열어 이겼다고 선언?”이라는 문장만 남아 있었다. 앞뒤 맥락은 빠져 있었고, 이미 사람들은 왕이 패배를 인정하지 않을 것이라고 해석하기 시작했다.`,
+`준성은 해당 발언이 실제로는 투표 규칙을 점검하자는 농담이었다고 설명했다. 하지만 맥락을 모르는 사람에게 그 설명은 변명처럼 들릴 수도 있었다. 상욱은 원본 대화 전체를 공개하자고 주장했고, 호택은 확산을 막기 위해 관련 계정에 연락하겠다고 했다.`,
+`지홍은 원본 공개가 친구들의 사적인 발언까지 노출할 수 있다는 점을 고려했다. 사실을 설명하되 관련 없는 개인 대화를 퍼뜨리지 않는 방식이 필요했다.`
+],[opt('발언의 전체 맥락과 회의 목적을 요약 공개한다','필요한 사실은 제공하되 사적 대화는 가린다.',{intel:4,influence:3,heat:-1,flags:['screenshot_context']}),opt('편집되지 않은 원본을 모두 공개한다','의혹은 줄 수 있지만 사생활 위험이 크다.',{influence:3,intel:2,heat:5,morale:-2,flags:['screenshot_full']}),opt('먼저 잘못 전달된 문장에 대해 사과하고 사실을 확인한다','감정을 인정한 뒤 검증 절차를 진행한다.',{morale:3,influence:2,heat:-2,flags:['screenshot_apology']})],'CRISIS'),
+ scene('누가 캡처했나','단체 채팅방 · 권한 기록','지홍',[
+`회의에 참여한 인원은 다섯 명이었다. 누가 캡처했는지 찾는 것은 기술적으로 가능할 수 있었지만, 추적을 시작하면 친구들 사이의 신뢰가 무너질 수 있었다. 더구나 내부 자료 공유 규칙 자체가 불명확했다. 지금 필요한 것은 범인을 찾는 일인지, 재발을 막는 일인지 먼저 구분해야 했다.`,
+`승우는 기록과 공유 권한을 확인하자고 했다. 호택은 참석자 모두에게 경위를 묻자고 했다. 상욱은 준성에게 충성을 증명하기 위해 모든 대화방 권한을 자신에게 모으자고 제안했다. 지홍은 마지막 제안이 지나치게 위험하다고 느꼈다.`,
+`조사 범위를 최소화하면 원인을 못 찾을 수 있지만, 관계를 지키면서도 절차를 개선할 가능성은 있었다.`
+],[opt('자료 접근 기록만 확인하고 인물 추적은 하지 않는다','필요한 사실만 확인해 권한을 정비한다.',{intel:4,morale:2,heat:-1,flags:['minimal_audit']}),opt('참석자 전원이 같은 질문에 답하도록 한다','공정한 절차처럼 보이나 압박으로 느껴질 수 있다.',{intel:2,sang:2,heat:3,morale:-1,flags:['equal_interview']}),opt('상욱에게 유출 방지 규칙을 설계하게 한다','따까리 역할을 통제보다 운영 개선에 쓴다.',{sang:4,intel:2,morale:1,flags:['sang_protocol']})],'ACCESS LOG'),
+ scene('왕의 사과문 초안','작전실 · 문장 편집기','준성',[
+`준성은 “오해가 있었다면 유감”이라는 문장을 보냈다. 지홍은 그 문장이 누구의 잘못인지 불분명하게 만든다고 생각했다. 왕권의 모든 비판에 사과해야 한다는 뜻은 아니지만, 실제로 혼란을 키운 발언과 내부 규칙의 미비는 책임지고 설명해야 했다.`,
+`상욱은 더 강한 문장을 원했고, 호택은 법률 문서처럼 안전한 표현을 제안했다. 승우는 당시에 회의가 어떤 목적이었는지 적어 두었다. 지홍은 문장의 온도와 사실의 정확성, 그리고 앞으로 할 일을 한 번에 담아야 했다.`,
+`좋은 사과문은 모든 비판을 인정하는 문서가 아니라, 확인된 잘못을 분명히 말하고 무엇을 바꿀지 약속하는 문서였다.`
+],[opt('혼란을 키운 발언과 미흡한 공유 규칙을 구체적으로 인정한다','무엇을 고칠지 명확하게 약속한다.',{influence:4,morale:3,heat:-3,flags:['specific_apology']}),opt('사실관계와 조사 일정을 먼저 공개한다','신중하지만 책임 표현이 약해 보일 수 있다.',{intel:4,influence:2,heat:-1,flags:['fact_first']}),opt('준성의 짧은 입장 뒤에 질의응답을 연다','직접 소통으로 추가 오해를 줄인다.',{influence:3,morale:2,heat:1,flags:['qa_open']})],'STATEMENT'),
+ scene('댓글의 파도','온라인 광장 · 실시간 피드','호택',[
+`사과문이 올라간 뒤 반응은 하나로 모이지 않았다. 일부는 태도가 바뀌었다고 평가했고, 일부는 늦었다고 비판했다. 몇몇 계정은 같은 표현을 반복하며 논쟁을 다시 키웠다. 호택은 반응이 좋지 않은 댓글을 숨기면 된다고 했지만, 지홍은 비판과 도배를 구분해야 한다고 답했다.`,
+`토론 공간을 관리하는 데는 기준이 필요했다. 모욕과 개인정보 노출은 막되, 정책에 대한 비판은 남겨 두어야 했다. 기준을 공개하면 상대가 그 경계만 이용하려 들 수도 있지만, 아무 기준도 없이 관리하면 검열 논란이 생길 수 있었다.`,
+`지홍은 댓글 정책을 단순한 금지 목록이 아니라, 왜 제한하는지와 이의 제기 방법까지 포함한 운영 규칙으로 만들기로 했다.`
+],[opt('비판은 남기고 도배·개인정보 노출만 제한한다','관리 기준과 이의 제기 절차를 공개한다.',{influence:3,intel:3,heat:-2,flags:['moderation_fair']}),opt('운영진 승인 댓글만 노출하는 임시 모드로 바꾼다','위험을 줄이지만 비판도 늦게 보인다.',{heat:-4,influence:-1,morale:-1,flags:['moderation_slow']}),opt('아예 댓글을 닫고 공지로만 소통한다','즉시 소란을 줄이나 소통 창구가 좁아진다.',{heat:-5,influence:-3,flags:['comments_closed']})],'AFTERMATH'),
+ scene('체크포인트 07: 캡처 이후','김지홍의 방 · 변경 내역','지홍',[
+`위기는 완전히 사라지지 않았다. 그러나 이제 내부 회의의 자료 공유 범위와 공개 입장문 작성 절차가 명확해졌다. 준성은 사과문을 올린 뒤 “왕도 말을 고칠 수 있네”라고 농담했다. 상욱은 그 농담을 공지에 넣을지 물어보려다, 이번에는 먼저 검토 기준표를 열었다.`,
+`지홍은 잘린 한 장의 화면이 모든 것을 결정하지 않도록, 기록을 어떻게 만들고 공유하는지부터 바꾸었다. 앞으로 중요한 발표는 초안 검토, 사실 확인, 공개 요약의 세 단계를 거치기로 했다.`
+],[opt('위기 대응 절차를 공식 매뉴얼에 추가한다','다음 장의 현장 행사로 넘어간다.',{intel:2,morale:2,flags:['chapter7_complete']})],'CHECKPOINT CLEAR')
+],{title:'삭제 버튼의 유혹',text:'상욱은 잘못 올린 공지의 제목을 고치려다 공지 전체를 삭제할 뻔했다. 지홍은 수정 기록이 남는 편집 규칙을 도입했다. 상욱은 “삭제보다 정정이 덜 무섭군요”라고 말했다.',choices:[opt('정정 내역을 공개하는 편집 규칙을 적용한다','투명성과 재발 방지를 높인다.',{intel:2,influence:2,sang:2}),opt('중요 공지는 두 명이 확인한 뒤 게시한다','실수를 줄이고 속도는 조금 포기한다.',{sang:2,morale:2,heat:-1})]});
+// EPISODE 8
+ ep('항구 축제 작전','방구석에서 지휘하는 현장 작전',[
+ scene('현장에 갈 수 없는 지휘관','김지홍의 방 · 축제 운영실','지홍',[
+`왕권 재신임 행사가 가까워지자, 준성은 온라인과 현장을 연결한 작은 공개 축제를 열자고 했다. 시민들이 정책 설명을 듣고 질문할 수 있는 자리였다. 지홍은 현장에 나갈 수 없다고 분명히 말했다. 지홍의 작전실은 방 안에 있고, 지휘도 여기서 이뤄진다. 그것은 갑자기 바꿔야 할 결함이 아니라 팀이 고려해야 할 조건이었다.`,
+`상욱은 현장 총괄을 맡고, 승우는 질문과 기록을 담당하고, 호택은 필요한 장비와 업체를 연결할 수 있었다. 준성은 왕으로서 직접 참석할 예정이었다. 각자 맡은 범위가 분명하지 않으면 작은 문제도 전부 지홍에게 전달되어 아무도 움직이지 못할 것이다.`,
+`지홍은 현장 팀에게 판단 가능한 범위와 긴급 상황에서 누구에게 연락할지 정해 주었다. 참모의 역할은 모든 결정을 대신하는 것이 아니라, 사람들이 올바른 결정을 내릴 수 있는 환경을 만드는 것이었다.`
+],[opt('현장 팀에 명확한 권한을 위임한다','지홍은 원격 지휘에 집중하고 현장은 자율적으로 움직인다.',{morale:4,influence:3,sang:2,flags:['festival_delegate']}),opt('모든 변경은 지홍의 승인을 받게 한다','통제력은 높으나 대응 속도가 늦어질 수 있다.',{intel:2,heat:3,morale:-2,flags:['festival_control']}),opt('예산·안전·발언만 승인 항목으로 제한한다','핵심 위험은 관리하면서 자율성을 살린다.',{intel:3,morale:3,influence:2,flags:['festival_guardrails']})],'FIELD OPS'),
+ scene('비가 온다는 예보','온라인 기상 보드 · D-2','호택',[
+`호택이 예약한 천막 업체에서 비 예보를 알려 왔다. 당초에는 야외 무대를 중심으로 계획했지만, 비가 내리면 장비와 참가자 동선이 모두 영향을 받는다. 호택은 실내 대관을 알아볼 수 있다고 했고, 상욱은 우비를 나눠 주면 된다고 했다. 승우는 온라인 중계 비중을 높이는 선택지도 제안했다.`,
+`어느 대응도 완벽하지 않았다. 장소를 바꾸면 비용이 늘고, 그대로 진행하면 안전 문제가 생길 수 있으며, 온라인으로 전환하면 현장에 참여하려던 사람들의 경험이 달라진다. 준비 단계에서 기준을 정하면 당일에 감정적인 결정을 내릴 가능성을 줄일 수 있었다.`,
+`지홍은 예산과 안전 기준을 함께 검토해 우천 대응 방안을 선택했다.`
+],[opt('실내 대체 장소를 확보하고 비용 한도를 정한다','비용은 들지만 현장 행사를 안정적으로 유지한다.',{cash:-5,intel:2,morale:2,flags:['rain_indoor']}),opt('야외 행사를 축소하고 온라인 중계를 강화한다','현장 동선을 줄이고 접근성을 넓힌다.',{cash:-2,influence:3,heat:-1,flags:['rain_hybrid']}),opt('안전 기준을 충족하지 못하면 현장을 연기한다','일정은 흔들리지만 무리한 진행을 막는다.',{influence:-1,morale:2,heat:-2,flags:['rain_delay']})],'CONTINGENCY'),
+ scene('케이블 하나의 정치학','현장 채팅 · 40분 전','상욱',[
+`행사 시작 40분 전, 음향 케이블 하나가 맞지 않았다. 상욱은 장비 업체에 연락했지만 업체 담당자는 다른 행사장에 있었다. 그는 준성에게 보고하고 지홍의 승인을 기다리려 했다. 지홍은 문제를 해결할 수 있는 사람이 현장에 있다면, 사전에 합의된 예산 안에서 판단해도 된다고 알려 줬다.`,
+`상욱은 대체 케이블을 구매하고 장비 연결을 확인했다. 동시에 승우가 기록용 백업 장치를 점검했다. 문제가 해결되는 동안 지홍은 불필요한 지시를 줄이고, 현장 팀이 상황을 요약해 전달하도록 했다.`,
+`작전은 큰 연설로만 성공하지 않는다. 책임과 권한이 일치할 때, 케이블 하나도 정치적 위기로 번지지 않을 수 있다.`
+],[opt('현장 구매 한도 안에서 상욱이 해결하도록 한다','결정과 책임을 같은 위치에 둔다.',{sang:4,morale:3,cash:-2,flags:['field_authority']}),opt('지홍이 원격으로 장비 목록을 검토한 뒤 승인한다','통제력을 유지하지만 시간이 걸린다.',{intel:3,heat:1,sang:1,flags:['remote_approval']}),opt('예비 장비와 백업 연결을 동시에 준비한다','추가 비용으로 실패 가능성을 낮춘다.',{cash:-3,intel:2,morale:2,flags:['backup_gear']})],'LAST-MILE'),
+ scene('왕의 연설, 참모의 문장','온라인 중계 · 시작 직전','준성',[
+`준성의 연설문에는 “내가 왕이니 내 말에 따르라”라는 문장이 굵게 표시돼 있었다. 지홍은 그 문장을 지우고, 왕권이 무엇을 책임지고 무엇을 바꿀 수 있는지 설명하는 문단을 앞쪽으로 옮겼다. 준성은 잠시 불만을 표했지만 곧 말했다. “오늘은 내가 목소리를 내고, 네가 구조를 잡아 줘.”`,
+`행사장 화면에 현장 사람들의 질문이 올라왔다. 어떤 질문은 예산에 관한 것이었고, 어떤 질문은 왕이라는 호칭 자체에 관한 것이었다. 준성은 모든 답을 즉석에서 내놓으려 하지 않고, 확인이 필요한 내용은 언제까지 답하겠다고 약속했다.`,
+`지홍은 화면 뒤에서 일정과 질문을 정리했다. 한 번의 행사가 모든 문제를 해결하진 않겠지만, 공개적으로 설명하고 기록하는 방식은 다음 결정의 기반이 될 수 있었다.`
+],[opt('연설과 질의응답을 기록해 후속 약속 목록으로 만든다','말한 내용을 실제 업무로 연결한다.',{intel:3,influence:4,morale:2,flags:['speech_followup']}),opt('현장에서 가장 많이 나온 질문에 즉시 답한다','속도와 현장감을 살린다.',{influence:3,heat:1,morale:1,flags:['live_answers']}),opt('확인되지 않은 질문은 답변 기한을 공지한다','성급한 추측을 피한다.',{intel:3,heat:-1,influence:2,flags:['answer_deadline']})],'LIVE EVENT'),
+ scene('체크포인트 08: 온라인과 현장의 연결','김지홍의 방 · 축제 종료 보고','지홍',[
+`행사는 큰 사고 없이 끝났다. 비가 조금 내렸고 음향은 시작 직전에 고쳐졌지만, 팀은 미리 정한 대응 절차를 따라 움직였다. 준성은 왕으로서 현장에 섰고, 상욱은 운영을 맡았고, 승우는 기록을 남겼고, 호택은 지원을 연결했다. 지홍은 끝까지 방에서 상황을 지휘했다.`,
+`지홍은 회고 문서에 성공만 적지 않았다. 권한 위임이 잘된 부분, 승인 대기 때문에 늦어진 부분, 다음에는 미리 준비할 장비를 함께 기록했다. 좋은 작전은 실수 없는 작전이 아니라 같은 실수를 반복하지 않는 작전이었다.`
+],[opt('행사 회고를 다음 운영 규칙에 반영한다','공개 회의와 마지막 협상으로 진행한다.',{intel:2,influence:2,morale:2,flags:['chapter8_complete']})],'CHECKPOINT CLEAR')
+],{title:'천막 속 왕관',text:'비가 내리기 시작하자 현장 팀은 왕관 장식에 투명 우비를 씌웠다. 준성은 “이제 왕관도 방수 인증을 받았다”고 선언했고, 상욱은 그 말을 공식 장비 규격에 넣으려 했다.',choices:[opt('안전·장비 체크리스트를 만든다','다음 행사에서 같은 혼선을 줄인다.',{intel:2,sang:2,morale:1}),opt('웃긴 장면은 기록하되 운영 매뉴얼과 분리한다','유머가 공식 규칙이 되는 일을 막는다.',{morale:2,seung:2,intel:1})]});
+// EPISODE 9
+ ep('의자 백 개의 회의','모두가 들어올 수 있는 회의의 설계',[
+ scene('의자는 왜 백 개인가','김지홍의 방 · 회의 구조도','승우',[
+`축제 후 들어온 요청 중에는 정기적인 공개 회의를 열어 달라는 의견이 많았다. 준성은 처음에 “백 명 정도면 충분하겠지?”라고 물었다. 호택은 참석 예상치를 계산했고, 상욱은 백 개 의자를 주문할 준비를 했다. 승우가 조심스럽게 물었다. “의자가 백 개인 게 목표야, 아니면 사람들이 의견을 낼 수 있는 게 목표야?”`,
+`지홍은 그 질문을 회의 기획 문서의 첫 줄에 넣었다. 현장에 올 수 있는 사람만 참여할 수 있다면 온라인 참여자는 배제된다. 질문이 많아지면 목소리가 큰 사람만 말하게 될 수 있다. 반대로 규칙을 너무 많이 두면 회의가 형식적인 절차로 굳어질 수 있었다.`,
+`이번 회의는 왕권을 없애는 투표가 아니라, 왕이 어떻게 책임지고 사람들의 의견을 반영할지 공개적으로 정하는 자리다. 준성이 여수의 왕이라는 설정은 그대로지만, 그 역할을 수행하는 방법은 논의할 수 있었다.`
+],[opt('현장과 온라인을 같은 의제표로 연결한다','참여 방식에 따라 의견의 가치가 달라지지 않도록 한다.',{influence:4,intel:3,morale:2,flags:['hybrid_council']}),opt('현장 발언을 우선하고 온라인은 서면 질문으로 받는다','진행은 단순해지지만 즉각적인 토론이 줄어든다.',{intel:2,heat:-1,influence:1,flags:['written_questions']}),opt('소규모 분임 토론 뒤 전체 회의로 모은다','더 많은 사람이 말할 수 있지만 시간이 늘어난다.',{morale:4,influence:2,cash:-2,flags:['small_groups']})],'COUNCIL'),
+ scene('의제 세 개의 함정','회의 준비 채팅 · 안건 검토','지홍',[
+`제안된 안건은 스물일곱 개였다. 왕관의 디자인, 공지 글자 수, 예산 공개, 행사 지원, 질문 답변 기한, 운영 규칙 개정 등이 한꺼번에 올라와 있었다. 전부 다루려면 하루가 부족할 것이다. 상욱은 왕관 디자인부터 처리해야 한다고 했고, 호택은 비용과 관련된 안건을 먼저 보자고 했다.`,
+`지홍은 안건을 긴급성, 영향 범위, 실행 가능성으로 평가했다. 사람들이 자주 언급한 의제라고 해서 반드시 가장 중요한 것은 아니고, 실행 가능한 안건이라고 해서 장기적인 문제보다 항상 앞서는 것도 아니었다.`,
+`회의의 첫 성공은 모든 문제를 해결하는 데 있지 않았다. 무엇을 지금 결정하고, 무엇을 추가 조사하며, 무엇을 다음 회의로 넘길지 모두가 이해하도록 만드는 데 있었다.`
+],[opt('예산·책임 범위·답변 기한을 핵심 안건으로 정한다','운영의 기본 구조를 먼저 다진다.',{intel:4,influence:3,flags:['agenda_core']}),opt('참여자 투표로 우선순위 세 가지를 정한다','참여감이 높지만 인기 의제가 앞설 수 있다.',{influence:4,morale:2,heat:1,flags:['agenda_vote']}),opt('긴급·중요·장기 과제로 분류해 공개한다','한 번의 회의에 모든 답을 몰아넣지 않는다.',{intel:3,morale:3,flags:['agenda_tiers']})],'AGENDA'),
+ scene('상욱의 진행 대본','온라인 공동 편집 문서','상욱',[
+`상욱은 진행 대본을 만들었다. 첫 문장은 “본 회의는 준성 왕께서 베푸시는 자비로운 경청의 시간입니다”였다. 지홍은 문장을 읽고 잠시 침묵했다. 상욱은 준성을 높이는 표현이 회의의 품위를 지킨다고 생각했지만, 그런 문장은 참여자들을 손님처럼 만들 수 있었다.`,
+`상욱이 준성의 따까리로서 충성스럽게 움직이는 것은 분명했다. 이제 그 충성심을 다른 사람의 발언을 막는 데 쓰지 않고, 회의가 공정하게 진행되도록 돕는 데 써야 했다. 상욱은 발언 순서, 시간 제한, 인신공격을 막는 규칙을 대본에 추가했다.`,
+`지홍은 상욱에게 진행자 권한을 줄지, 승우와 공동 진행을 맡길지, 준성의 사회로 왕의 존재감을 살릴지 결정했다.`
+],[opt('상욱을 진행자로 세우고 공개 규칙을 적용한다','충성심을 절차의 공정성으로 연결한다.',{sang:5,influence:3,morale:2,flags:['sang_moderator']}),opt('승우와 상욱이 공동 진행을 맡는다','기록과 현장 진행을 서로 견제하게 한다.',{seung:3,sang:3,intel:2,flags:['co_moderators']}),opt('준성이 직접 진행하되 상욱은 시간과 발언 순서를 관리한다','왕의 책임감을 보여 주지만 권한 집중이 남는다.',{influence:2,sang:2,heat:1,flags:['king_moderates']})],'MODERATION'),
+ scene('한 사람이 열 번 말할 때','공개 회의 · 발언 신청 창','지홍',[
+`회의 리허설에서 한 참여자가 비슷한 질문을 열 번 연속 등록했다. 어떤 사람들은 반복을 악의적인 방해라고 봤고, 다른 사람들은 답을 제대로 듣지 못했기 때문이라고 생각했다. 발언 횟수를 제한하면 토론이 원활해지지만, 실제로 해결되지 않은 문제를 기계적으로 차단할 위험도 있었다.`,
+`승우는 질문마다 처리 상태를 보여 주자고 했다. 이미 답변한 질문은 답변 링크와 함께 표시하고, 아직 해결되지 않은 내용은 담당자와 기한을 부여하는 방식이었다. 그러면 같은 질문을 반복해야 할 필요가 줄어들 수 있었다.`,
+`지홍은 발언자의 태도만 관리하는 대신 질문 자체가 해결되고 있는지 확인하는 구조를 택할지 고민했다.`
+],[opt('질문별 상태·담당자·답변 기한을 표시한다','반복 질문을 줄이고 누락을 방지한다.',{intel:4,influence:3,heat:-1,flags:['question_status']}),opt('발언 횟수를 제한하고 추가 질문은 서면으로 받는다','진행은 빨라지나 참여자가 답답해할 수 있다.',{heat:-2,influence:-1,morale:1,flags:['speaking_limit']}),opt('진행자가 질문을 묶어 대표 답변을 제시한다','효율적이지만 개별 맥락을 놓칠 수 있다.',{intel:2,influence:2,sang:2,flags:['grouped_answers']})],'FAIR VOICE'),
+ scene('체크포인트 09: 열린 의자','김지홍의 방 · 회의 결과 초안','지홍',[
+`회의 설계안이 공개되자 사람들은 세부 규칙에 의견을 보탰다. 모두가 같은 결론에 도달하지는 않았지만, 누구나 어떤 방식으로 의견을 낼 수 있고 어떤 내용이 언제 처리되는지 알 수 있게 됐다. 준성은 왕으로서 회의의 결과를 받아들일 책임이 있었고, 지홍은 그 결과가 문서 속에만 머무르지 않도록 추적해야 했다.`,
+`‘백 개의 의자’는 결국 가구 주문서가 아니라 참여의 상징이 됐다. 현장의 의자가 몇 개였는지보다, 회의 뒤에 실제로 바뀐 것이 무엇인지가 더 중요했다.`
+],[opt('회의 운영안을 공식 일정에 등록한다','마지막 협상과 최종 결정으로 넘어간다.',{influence:2,intel:2,morale:2,flags:['chapter9_complete']})],'CHECKPOINT CLEAR')
+],{title:'의자 조립 긴급 회의',text:'호택은 의자 백 개를 대여하는 데 성공했지만 배송 상자에 조립 설명서가 없었다. 상욱은 “충성의 힘으로 조립하겠다”고 선언했고, 승우는 설명서 검색 담당이 됐다. 지홍은 다음부터는 물품뿐 아니라 설치 조건도 확인해야 한다고 적었다.',choices:[opt('대여 계약에 설치와 회수 조건을 포함한다','실무 위험을 줄인다.',{intel:2,hotek:2,cash:1}),opt('분담표를 만들고 조립 상황을 기록한다','협력과 책임 분담을 강화한다.',{sang:2,seung:2,morale:1})]});
+// EPISODE 10
+ ep('충성 서약의 밤','상욱이 숨긴 작전과 믿음의 시험',[
+ scene('수상한 일정표','김지홍의 방 · 암호화된 일정','지홍',[
+`최종 행사 전날, 상욱의 일정표에서 평소와 다른 항목이 발견됐다. ‘22:30 비공개 확인’, 참석자는 상욱과 새벽물결단의 연락 담당자 한 명. 설명은 없었다. 상욱은 준성의 따까리답게 왕을 위한 일을 했다고만 말했다. 호택은 배신 가능성을 의심했고, 승우는 기록을 확인하기 전에 결론을 내리지 말자고 했다.`,
+`상욱은 사실 준성의 지시로 상대 측과 마지막 협상 가능성을 확인하고 있었다. 다만 준성이 공개 회의에서 협상 의지를 약점으로 보일까 걱정해, 세부 내용을 널리 알리지 말라고 부탁한 상태였다. 의도는 왕을 돕는 것이었지만, 비밀이 길어지면서 오해가 커졌다.`,
+`지홍은 상욱을 즉시 추궁할 수도, 준성에게 직접 사실을 확인할 수도, 협상 기록을 먼저 확인한 뒤 판단할 수도 있었다. 충성은 감시와 같은 말이 아니며, 신뢰는 확인을 생략하라는 뜻도 아니었다.`
+],[opt('상욱에게 직접 설명할 기회를 주고 기록을 함께 확인한다','신뢰를 지키면서 사실을 검증한다.',{sang:5,intel:3,morale:2,flags:['sang_heard']}),opt('준성에게 먼저 보고해 지시 범위를 확인한다','지휘 체계를 지키지만 상욱은 의심받는다고 느낄 수 있다.',{seung:0,sang:-1,intel:3,flags:['king_first']}),opt('승우에게 시간표와 메시지 기록을 독립 검토하게 한다','인물 판단보다 증거를 우선한다.',{intel:5,sang:1,heat:-1,flags:['independent_review']})],'CONFIDENTIAL'),
+ scene('협상 제안의 진짜 내용','비공개 문서 · 합의 초안','상욱',[
+`협상 초안에는 새벽물결단이 요구한 세 가지가 적혀 있었다. 첫째, 운영 예산을 정기적으로 공개할 것. 둘째, 특정 결정에 대해 질문을 제출할 수 있을 것. 셋째, 일정 기간 뒤 운영 규칙을 다시 검토할 것. 반대로 준성의 왕이라는 호칭을 즉시 없애라는 요구는 없었다.`,
+`상욱은 왕권을 넘기는 합의라고 생각하지 않았다고 설명했다. 준성이 여수의 왕이라는 사실을 유지하면서도 책임과 절차를 분명히 하는 제안이었다. 그러나 비공개 협상을 했다는 점이 알려지면 사람들이 자신이 배제됐다고 느낄 수 있었다.`,
+`협상 내용을 전부 공개하면 투명성은 커지지만 아직 합의되지 않은 문장까지 확정된 것처럼 보일 수 있다. 요약본만 공개하면 맥락을 잃을 수 있다. 공개 범위를 설계해야 했다.`
+],[opt('합의된 원칙과 미합의 항목을 구분해 공개한다','협상 사실을 숨기지 않고 오해를 줄인다.',{influence:4,intel:3,heat:-1,flags:['negotiation_open']}),opt('준성과 상대 측의 최종 확인 뒤 전문을 공개한다','정확성을 우선하지만 공개가 늦어진다.',{intel:4,heat:1,sang:2,flags:['negotiation_review']}),opt('협상은 비공개로 두고 결과만 발표한다','민감한 논의를 보호하지만 불신이 남을 수 있다.',{heat:2,influence:-1,sang:1,flags:['negotiation_closed']})],'DRAFT TERMS'),
+ scene('준성의 원칙','왕의 음성 메시지 · 밤 11시','준성',[
+`준성은 지홍에게 음성 메시지를 보냈다. “나는 여수의 왕이야. 누가 나를 왕이라고 부르는지에 따라 매번 지위를 바꾸고 싶진 않아. 그래도 내가 책임져야 할 일까지 피할 생각은 없어.” 그는 운영 규칙을 바꾸는 것과 자기 자리를 포기하는 것은 다른 문제라고 말했다.`,
+`지홍은 왕의 권위를 지키려면 비판을 모두 막아야 한다는 생각부터 바꿔야 한다고 답했다. 준성은 잠시 웃더니 “네가 내 참모라서 다행이다. 내 말만 맞다고 해 주는 사람이었으면 이런 얘기 못 했겠지”라고 했다.`,
+`이제 선택은 준성이 어떤 왕으로 남을지에 관한 것이다. 모든 결정을 혼자 쥐는 방식, 공개 회의로 책임을 나누는 방식, 또는 규칙과 보고서를 통해 운영을 개혁하는 방식이 있었다.`
+],[opt('왕의 역할은 유지하되 공개 보고와 재검토를 약속한다','권위와 책임을 한 문서에 담는다.',{influence:4,intel:3,morale:2,flags:['king_accountable']}),opt('자문 회의를 정례화해 결정 근거를 공개한다','운영의 참여 기반을 넓힌다.',{influence:3,morale:4,heat:-1,flags:['king_council']}),opt('왕의 긴급 권한과 사용 조건을 명확히 규정한다','속도와 견제 사이의 선을 그린다.',{intel:4,sang:1,flags:['emergency_limits']})],'THE KING'),
+ scene('상욱의 서약서','김지홍의 방 · 운영 규정 초안','상욱',[
+`상욱은 자신이 맡을 역할을 다시 써서 보냈다. 준성의 지시를 무조건 반복하는 것만으로는 좋은 실무자가 될 수 없고, 실행 과정에서 문제가 보이면 먼저 보고하고 대안을 함께 제시하겠다는 내용이었다. 충성은 그대로였지만 방식은 달라졌다.`,
+`그는 마지막에 “그래도 저는 준성님 따까리인 건 맞습니다. 다만 이제는 일 잘하는 따까리가 되겠습니다”라고 덧붙였다. 지홍은 그 문장을 공식 규정에서 빼고, 대신 책임과 권한을 명확히 기록했다. 상욱의 농담은 친구들 사이에만 남겨 두었다.`,
+`최종 행사에서 상욱은 명령을 수행하는 사람으로만 보일 수도 있고, 공정한 운영 절차를 맡는 실무 책임자로 보일 수도 있다. 어느 쪽이든 준성과의 관계 자체를 부정할 필요는 없었다.`
+],[opt('상욱을 운영 실무 책임자로 임명하고 검토 절차를 둔다','충성심을 전문성과 연결한다.',{sang:5,intel:2,influence:2,flags:['sang_lead']}),opt('상욱의 권한을 좁히고 승우와 교차 확인한다','실수 가능성을 낮추지만 속도는 느려진다.',{intel:3,seung:2,sang:1,flags:['sang_checks']}),opt('상욱에게 보고와 현장 실행을 맡기되 정책 결정은 분리한다','실행력과 책임 범위를 함께 정한다.',{sang:3,morale:2,influence:2,flags:['sang_ops']})],'OATH'),
+ scene('체크포인트 10: 신뢰의 기록','김지홍의 방 · 합의 추적표','지홍',[
+`상욱이 숨긴 일정은 배신이 아니라 불완전한 비밀 유지에서 시작된 일이었다. 의도를 확인하고도 절차의 문제를 그냥 넘기지는 않았다. 앞으로 중요한 협상은 참석자, 목적, 공개 가능한 범위, 사후 보고 기한을 미리 기록하기로 했다.`,
+`준성은 여수의 왕으로 남는다. 하지만 왕의 곁에서 일하는 사람들도 판단할 수 있어야 하고, 그 판단은 설명 가능한 규칙 안에서 이뤄져야 한다. 지홍은 최종 작전 문서를 열고 마지막으로 남은 준비 항목을 정리했다.`
+],[opt('협상 기록과 역할 규칙을 최종 작전 파일에 추가한다','마지막 준비 단계로 넘어간다.',{intel:2,influence:2,sang:2,flags:['chapter10_complete']})],'CHECKPOINT CLEAR')
+],{title:'비밀 회의의 간식',text:'상욱은 협상 자리에서 준비한 간식을 보고서에 ‘협상 지원 물자’라고 적었다. 호택은 비용 처리 항목을 만들려 했고, 승우는 간식은 간식이라고 수정했다. 지홍은 중요한 회의일수록 문서의 표현도 정확해야 한다고 적었다.',choices:[opt('지출 목적과 증빙을 정확하게 남긴다','기록의 신뢰도를 높인다.',{intel:2,hotek:2}),opt('소액 항목은 간단한 양식으로 처리한다','규칙은 지키되 행정 부담을 줄인다.',{morale:1,cash:1,intel:1})]});
+// EPISODE 11
+ ep('마지막 준비','열두 개의 체크리스트',[
+ scene('최종전 보드','김지홍의 방 · 통합 작전판','지홍',[
+`왕권 재신임 행사까지 하루가 남았다. 지홍은 지금까지 쌓인 보고서를 한 화면에 모았다. 예산은 얼마 남았는지, 아직 답하지 않은 질문은 무엇인지, 현장 장비는 준비됐는지, 공개 약속 가운데 기한이 다가온 것은 무엇인지 한눈에 확인해야 했다.`,
+`상욱은 운영 일정표를 정리했고, 승우는 자료의 출처를 다시 확인했고, 호택은 비용이 예상 범위를 넘지 않는지 점검했다. 준성은 최종 연설을 준비했다. 모두가 자기 일을 하고 있었지만, 일이 많아질수록 중요한 항목 하나가 빠질 위험도 커졌다.`,
+`지홍은 남은 자원을 기준으로 무엇을 보강할지 선택했다. 완벽한 계획보다 현실적으로 실행 가능한 계획이 중요했다.`
+],[opt('정보 검증에 시간을 더 써서 발표 자료를 단단히 만든다','근거가 강해지지만 여론 대응은 줄어든다.',{intel:5,cash:-1,flags:['final_evidence']}),opt('참여자 안내와 질문 접수에 자원을 더 투입한다','혼선을 줄이고 참여를 넓힌다.',{influence:4,morale:3,cash:-2,flags:['final_access']}),opt('긴급 상황 대응과 백업 장비를 보강한다','변수에 강해지지만 준비 비용이 든다.',{intel:2,morale:2,cash:-3,heat:-1,flags:['final_backup']})],'FINAL BOARD'),
+ scene('다섯 명의 역할','단체 음성 회의 · D-1','준성',[
+`준성은 다섯 명의 역할을 다시 확인했다. 지홍은 방 안에서 전체 전략과 자료를 관리한다. 상욱은 준성의 지시에 따라 현장 운영을 맡되, 정해진 권한 안에서는 독립적으로 판단한다. 승우는 기록과 검증을 담당한다. 호택은 협력자와 비용을 연결한다. 준성은 여수의 왕으로서 공개 질의에 답하고 최종 책임을 진다.`,
+`역할표를 확인한 뒤 모두가 자기 이름 옆에 체크 표시를 했다. 그 간단한 행동은 평소보다 진지했다. 이 프로젝트는 한 사람이 모든 일을 떠안아서 성공하는 방식이 아니었다. 서로의 능력을 믿고, 필요할 때 질문하고, 결과를 기록하는 방식이어야 했다.`,
+`지홍은 어느 역할이 가장 취약한지 검토한 뒤 마지막 지원을 배분했다.`
+],[opt('상욱과 승우 사이에 교차 검증 절차를 둔다','속도보다 실수 방지를 우선한다.',{sang:2,seung:3,intel:2,flags:['cross_check']}),opt('호택의 외부 협력 목록에 대체 연락처를 추가한다','연락 실패에 대비한다.',{hotek:4,morale:1,flags:['backup_contacts']}),opt('준성의 답변을 질문 유형별로 리허설한다','왕의 발표와 실제 질문의 연결을 높인다.',{influence:3,intel:2,flags:['speech_rehearsal']})],'TEAM READY'),
+ scene('마지막 질문','익명 질문함 · 자정','지홍',[
+`자정이 가까워졌을 때 마지막 질문이 들어왔다. “결과가 마음에 들지 않으면 왕은 어떻게 할 건가요?” 질문은 공격적으로 쓰이지 않았지만, 모든 준비의 핵심을 찌르고 있었다. 투표 결과가 어떻게 나오든 준성이 그 결과를 무시한다면 지금까지의 약속은 의미를 잃을 것이다.`,
+`준성은 바로 답하지 않았다. 지홍은 최종 계획에 결과별 대응을 넣었다. 지지율이 높든 낮든, 자료에 오류가 발견되든, 현장에 문제가 생기든, 결과 발표 후 무엇을 할지 미리 정해 두어야 했다.`,
+`단 하나의 숫자에 왕의 모든 가치가 달리는 건 아니지만, 공개 절차의 결과를 존중하지 않는다면 신뢰를 잃을 수 있다. 준성은 결과를 듣고도 운영 규칙을 유지하며 책임을 지겠다고 약속했다.`
+],[opt('결과와 무관하게 공개된 규칙대로 후속 조치를 실행한다','절차에 대한 약속을 지킨다.',{influence:4,morale:3,heat:-1,flags:['result_respected']}),opt('결과를 분석한 뒤 수정안을 다시 공개한다','유연하지만 결과 수용이 약해 보일 수 있다.',{intel:4,influence:2,flags:['result_review']}),opt('불확실성을 인정하고 질문자에게 추가 설명을 요청한다','대화를 이어 가되 즉시 답변은 미룬다.',{morale:2,intel:2,influence:1,flags:['result_dialogue']})],'LAST QUESTION'),
+ scene('잠들지 않는 대시보드','김지홍의 방 · 새벽 1시 40분','지홍',[
+`모든 창이 열려 있었다. 예산표, 질문 목록, 운영 규칙, 비상 연락망, 발표문. 지홍은 탭을 하나씩 닫으며 머릿속에서도 우선순위를 정리했다. 자신이 방 밖으로 나가지 않는다는 사실은 변하지 않았다. 하지만 방 안에서 일어난 결정은 밖의 사람들에게 영향을 줄 수 있었다.`,
+`준성은 메시지를 남겼다. “잠깐이라도 쉬어. 마지막은 내 몫이야.” 지홍은 그 문장을 읽고 긴급 연락만 알림으로 남겼다. 모든 일을 실시간으로 감시하는 것이 책임감은 아니었다. 책임은 다른 사람들이 움직일 수 있게 만드는 데도 있었다.`,
+`지홍은 마지막으로 작전 보드를 저장했다. 아침이 오면 그들은 완벽하지 않은 준비를 안고 공개 행사에 들어간다. 중요한 것은 모든 문제가 사라졌느냐가 아니라, 문제를 다룰 준비가 되었느냐였다.`
+],[opt('체크리스트를 저장하고 긴급 알림만 켠다','집중력과 대응 준비를 균형 있게 유지한다.',{morale:4,intel:2,heat:-2,flags:['rested_command']}),opt('남은 질문을 끝까지 모두 검토한다','정보를 더 얻지만 피로가 누적된다.',{intel:4,morale:-3,flags:['all_questions_read']}),opt('팀에게 최종 확인을 요청하고 잠시 물러난다','협업을 믿고 집중력을 회복한다.',{sang:1,seung:1,hotek:1,morale:3,flags:['team_trust']})],'NIGHT BEFORE'),
+ scene('체크포인트 11: 출정 버튼','김지홍의 방 · 최종 확인 창','지홍',[
+`‘최종 실행’ 버튼이 화면에 나타났다. 지홍은 잠깐 멈췄다. 처음 이 프로젝트를 맡았을 때는 준성의 자리를 지키는 것이 목표인 줄 알았다. 이제 목표는 조금 달라졌다. 준성이 여수의 왕으로 남는 일과, 그 왕권이 책임 있는 방식으로 작동하게 만드는 일은 함께 이룰 수 있어야 했다.`,
+`상욱은 현장에 도착했다고 보고했고, 승우는 자료 검증을 끝냈고, 호택은 모든 협력 연락처가 유효하다고 확인했다. 준성은 연설문을 닫았다. 지홍은 방 안에서 버튼을 눌렀다.`
+],[opt('최종 실행을 시작한다','왕권 재신임 프로젝트의 마지막 장으로 진입한다.',{influence:2,morale:2,flags:['chapter11_complete']})],'CHECKPOINT CLEAR')
+],{title:'체크리스트 13번',text:'최종 체크리스트에 항목이 열두 개뿐이라고 생각했는데, 상욱이 13번을 추가했다. “체크리스트가 너무 완벽한지 확인.” 승우는 이 항목은 어떻게 체크하는지 물었고, 지홍은 일단 체크하지 말자고 했다.',choices:[opt('체크리스트를 팀이 함께 최종 검토한다','누락을 여러 사람이 발견할 수 있다.',{intel:2,morale:2,sang:1}),opt('우선순위를 세 개로 압축해 현장에 공유한다','긴급 상황에서 판단이 빨라진다.',{influence:2,intel:1,heat:-1})]});
+// EPISODE 12
+ ep('여수왕 최종전','왕좌가 아니라 약속을 지키는 날',[
+ scene('접속 대기실','온라인 공개 행사 · 시작 10분 전','준성',[
+`공개 행사가 시작되기 전, 대기실에는 다섯 명의 상태가 표시됐다. 준성은 왕의 자리에서 발표를 기다리고 있었다. 상욱은 현장 운영 채널을 관리했고, 승우는 검증된 자료를 준비했고, 호택은 외부 연결을 확인했다. 지홍은 자기 방의 화면 여러 개를 정리하고 최종 지휘를 시작했다.`,
+`새벽물결단 측 대표도 접속했다. 상대는 왕의 자리를 무조건 없애자는 사람이 아니었다. 그들은 그 자리가 어떤 권한을 가지고 어떤 책임을 져야 하는지 공개적으로 확인하고 싶다고 말했다. 이제 중요한 질문은 누가 이기는가가 아니라 어떤 약속이 남는가였다.`,
+`지홍은 마지막 순간까지 계획을 바꿀 수 있었다. 준비한 설명을 그대로 내보낼지, 검증 자료를 먼저 공개할지, 상대의 질문을 우선할지. 시작 순서는 행사 분위기를 결정할 것이다.`
+],[opt('검증 자료와 운영 원칙을 먼저 공개한다','근거를 앞세워 토론의 기준을 만든다.',{intel:3,influence:3,flags:['final_data_first']}),opt('상대 측의 핵심 질문을 먼저 듣는다','대화를 시작으로 삼지만 주도권은 줄어든다.',{morale:3,influence:2,heat:-1,flags:['final_listen_first']}),opt('준성의 짧은 인사 뒤에 진행 규칙을 안내한다','왕의 책임과 행사 구조를 먼저 알린다.',{influence:2,morale:2,flags:['final_rules_first']})],'LIVE FINAL'),
+ scene('왕은 무엇을 약속하는가','공개 토론 · 첫 질문','준성',[
+`첫 질문은 단순했다. “왕으로서 계속 결정할 수 있는 범위와, 다른 사람에게 설명해야 하는 범위가 무엇인가요?” 준성은 여수의 왕이라는 자신의 호칭을 부정하지 않았다. 대신 왕의 역할이 모든 사안에 혼자 답을 내리는 권리는 아니라고 말했다. 긴급 상황에서는 빠르게 결정하되, 그 근거와 결과를 보고하겠다고 했다.`,
+`상욱은 발표 자료를 넘기고 승우는 답변을 기록했다. 호택은 비용과 지원 내역을 화면에 올렸다. 지홍은 어느 질문이 미답인지 확인했다. 행사가 계획대로 흘러가고 있었지만, 진짜 시험은 불리한 질문에 어떻게 대응하느냐에 있었다.`,
+`다음 질문은 예산 공개 방식에 관한 것이었다. 자료가 충분하면 바로 공개할 수 있지만, 확인되지 않은 항목이 있으면 검증 시간이 더 필요했다.`
+],[opt('검증 완료된 예산부터 공개하고 미확인 항목의 기한을 밝힌다','정확성과 투명성을 함께 지킨다.',{intel:4,influence:3,heat:-1,flags:['budget_verified']}),opt('전체 예산표를 먼저 공개하고 오류를 나중에 정정한다','속도는 빠르지만 잘못된 정보가 퍼질 수 있다.',{influence:3,intel:-1,heat:2,flags:['budget_fast']}),opt('외부 검토를 거친 뒤 공개하겠다고 약속한다','신뢰성을 높이지만 즉시성은 떨어진다.',{intel:3,morale:2,heat:1,flags:['budget_external_review']})],'ACCOUNTABILITY'),
+ scene('예상 밖의 제안','공개 토론 · 새벽물결단 대표','상대 대표',[
+`새벽물결단 대표가 예상 밖의 제안을 내놓았다. “왕이라는 호칭을 유지하는 대신, 운영 보고서를 정기적으로 공개하고 일정 기간 후 규칙을 공동 검토하면 어떻습니까?” 그들은 승리 선언보다 구체적인 약속을 원한다고 했다. 준성은 이 제안이 자신의 자리를 없애려는 것이 아니라 책임의 방식을 바꾸려는 것일 수 있음을 깨달았다.`,
+`상욱은 즉시 동의하려 했지만 지홍은 약속을 실행할 자원과 담당자를 먼저 확인했다. 감동적인 선언이더라도 담당자도 기한도 없으면 오래가지 못한다. 반대로 세부 조항을 끝없이 논의하면 기회를 놓칠 수 있었다.`,
+`지홍은 정기 보고, 공동 검토, 혹은 왕의 긴급 권한을 명확히 하는 안 중 무엇을 중심 약속으로 삼을지 정했다. 모든 안은 준성이 여수의 왕으로 남는 틀 안에서 설계할 수 있었다.`
+],[opt('정기 보고와 공개 약속 추적표를 핵심으로 삼는다','실행 가능하고 점검하기 쉬운 약속을 만든다.',{influence:4,intel:3,flags:['ending_reform']}),opt('공개 회의를 정례화하고 공동 검토단을 만든다','참여와 상호 신뢰를 중심으로 운영한다.',{morale:4,influence:3,flags:['ending_council']}),opt('상욱을 운영 총괄로 세우고 왕의 책임 범위를 분명히 한다','강한 실행 체계와 확인 절차를 만든다.',{sang:4,intel:2,influence:2,flags:['ending_sang']})],'THE OFFER'),
+ scene('마지막 변수: 서버가 멈췄다','온라인 공개 행사 · 연결 장애','호택',[
+`최종 질의응답 중계가 잠시 멈췄다. 채팅이 멎고 화면이 멈춘 듯 보였다. 호택은 대체 스트림을 열 수 있다고 했고, 승우는 기록된 질문을 별도로 공개하자고 했다. 상욱은 현장 안내를 맡아 참가자들에게 상황을 설명했다. 누구도 지홍을 방 밖으로 나오라고 할 수는 없었다. 지홍의 대응은 원격 운영실에서 이뤄졌다.`,
+`위기 상황에서 중요한 것은 완벽한 화면을 유지하는 것이 아니라, 정보가 끊겼을 때 참가자들이 무엇을 믿고 기다릴 수 있는지 알려 주는 것이다. 지홍은 장애 사실, 복구 예상이 아닌 확인된 상태, 대체 참여 경로를 안내하도록 했다. 확인하지 못한 복구 시간을 약속하지 않았다.`,
+`몇 분 뒤 중계가 복구됐다. 행사는 계획보다 늦어졌지만 질문 목록과 기록은 보존됐다. 그때 준성은 지홍에게 짧게 메시지를 보냈다. “네가 방 안에서 준비해 둔 백업이 우리를 살렸어.”`
+],[opt('중계 복구 후 누락된 질문부터 다시 진행한다','참여자가 답을 받을 수 있도록 순서를 보정한다.',{influence:3,morale:3,heat:-1,flags:['stream_recovered']}),opt('기록된 질문과 답변을 먼저 공개하고 일정 재조정 공지를 낸다','중단으로 생긴 불확실성을 줄인다.',{intel:3,influence:2,morale:2,flags:['stream_record']}),opt('대체 채널을 동시에 열어 참가자가 선택하게 한다','접근성을 높이지만 운영이 복잡해진다.',{influence:4,intel:1,cash:-2,flags:['stream_multi']})],'LIVE INCIDENT'),
+ scene('체크포인트 12: 왕권 재신임','김지홍의 방 · 결과 대기','지홍',[
+`행사가 끝나자 화면에는 결과 집계가 올라왔다. 결과는 단순한 승패로 정리되지 않았다. 참석자들은 준성의 왕이라는 호칭을 유지하는 데 동의하면서도, 어떤 방식으로 보고하고 책임질지에 대해 여러 의견을 남겼다. 준성은 그 결과를 무시하지 않겠다고 약속했고, 지홍은 약속이 실제 일정과 담당자로 이어지도록 마지막 기록을 정리했다.`,
+`상욱은 운영 결과를 보고했고, 승우는 기록 파일을 검증했고, 호택은 정산표를 공유했다. 준성은 여수의 왕으로 남는다. 지홍은 여전히 방에서 나오지 않지만, 자신이 세운 규칙과 친구들이 움직인 방식이 바깥의 운영을 바꾸었다는 사실을 알았다.`,
+`이제 작전의 결말은 지홍이 마지막으로 무엇을 우선하느냐에 따라 달라진다. 규칙 개혁, 공개 회의, 상욱의 실행 체계, 혹은 보이지 않는 참모의 전략을 선택할 수 있다.`
+],[opt('규칙 개혁 엔딩: 약속을 점검할 수 있게 만든다','정기 보고와 공개 일정으로 왕권을 보강한다.',{influence:2,intel:2,flags:['ending_reform']}),opt('공개 회의 엔딩: 결정에 사람들의 목소리를 잇는다','공동 검토와 공개 회의를 중심으로 운영한다.',{morale:3,influence:2,flags:['ending_council']}),opt('실행 체계 엔딩: 상욱의 현장 운영을 강화한다','준성의 지휘 아래 실무 체계를 정비한다.',{sang:3,intel:1,flags:['ending_sang']}),opt('방구석 참모 엔딩: 조용한 전략실을 유지한다','지홍은 보이지 않는 참모로서 장기 계획을 맡는다.',{intel:3,morale:2,flags:['ending_shadow']})],'FINAL DECISION')
+],{title:'왕관의 방수 커버',text:'행사가 끝난 뒤 준성은 투명 우비를 씌운 왕관 사진을 공식 기념물로 만들자고 했다. 상욱은 이미 인쇄 업체를 알아봤고, 호택은 대량 주문 할인을 받았고, 승우는 사진 파일의 해상도를 확인했다. 지홍은 사진을 기념으로 남기되 새 규정과 혼동하지 말자고 했다.',choices:[opt('기념 기록으로만 보관하고 운영 문서와 분리한다','상징과 정책을 구분한다.',{intel:2,morale:2,heat:-1}),opt('행사 기록과 함께 웃긴 비하인드도 공개한다','팀의 인간적인 면을 보여 준다.',{influence:2,morale:3,heat:1})]});
+// CAMPAIGN ENGINE
+const $=id=>document.getElementById(id);
+const STAT_META={cash:{label:'자금',kind:'cash',detail:'예산·지원 여력'},intel:{label:'정보',kind:'intel',detail:'검증 자료·분석력'},influence:{label:'영향력',kind:'influence',detail:'여론·설득력'},morale:{label:'팀 사기',kind:'morale',detail:'협업·집중력'},heat:{label:'여론 열기',kind:'heat',detail:'높을수록 갈등이 거세짐'}};
+const REL_META={sang:{name:'상욱',role:'준성의 따까리 · 현장 운영'},seung:{name:'승우',role:'옛 기록 · 검증 담당'},hotek:{name:'호택',role:'인맥 · 외부 협력'}};
+const prologue={id:'prologue',type:'scene',ch:0,title:'알림 999+ : 방구석의 레이더',place:'김지홍의 방 · 00:17',speaker:'김지홍',emblem:'PROLOGUE',body:[
+'방 안은 조용했다. 모니터에는 전략 게임, 채팅방, 메모장, 알림 창이 겹쳐 있었다. 김지홍은 히키코모리다. 밖으로 나가는 일은 최대한 피하고, 필요한 일은 화면 안에서 해결하는 편을 택한다. 그의 세계는 좁아 보여도 연결된 창들은 도시만큼 복잡했다.',
+'오늘 밤 옛 친구들의 단체 채팅방에 새 메시지가 올라왔다. 준성은 자신을 여수의 왕이라 부르는 일을 한 번도 농담처럼만 여기지 않았다. 상욱은 준성의 따까리로서 공지와 지시를 정리했고, 호택은 돈과 인맥으로 일이 풀리도록 도왔다. 승우는 과거의 기록을 기억하는 사람이었다.',
+'준성의 메시지는 짧았다. “지홍아. 누가 내 왕권을 공개 검증하겠다고 나섰다. 나는 여수의 왕으로 남을 거야. 다만 이번엔 제대로 대응하고 싶다. 방 안에서 작전 좀 짜 줘.” 지홍은 커서를 움직였다. 밖으로 나갈 필요는 없었다. 하지만 이제 그의 선택은 친구들만이 아니라 여러 사람에게 영향을 미칠 것이다.'
+],choices:[opt('참모직을 수락하고 전체 작전을 맡는다','정보와 영향력을 조금 얻고 장기 캠페인을 시작한다.',{intel:3,influence:3,morale:2,flags:['accepted_command']}),opt('먼저 역할과 책임 범위를 문서로 합의한다','질서 있는 지휘 체계를 만든다.',{intel:4,sang:1,heat:-1,flags:['command_terms']}),opt('친구들에게 현재 상황부터 자세히 보고하게 한다','정보를 모아 위험을 줄인다.',{intel:5,morale:-1,flags:['first_briefing']})]};
+const NODES={};
+NODES.prologue=prologue;
+prologue.choices=prologue.choices.map(c=>({...c,next:'c1s1'}));
+// EXPANDED CAMPAIGN BEATS: three additional narrative encounters per chapter
+const EXTRA_SCENES = [
+[
+ scene('참모실 운영 규칙','김지홍의 방 · 핀 보드','김지홍',[
+`첫 작전이 끝나자 지홍은 메모장이 뒤죽박죽이라는 사실을 깨달았다. 준성의 음성 메시지, 상욱의 공지 초안, 호택의 비용표, 승우의 기록이 전부 한 폴더에 들어 있었다. 작전이 길어질수록 정보가 많아지는 것보다 필요한 순간에 찾을 수 있는지가 더 중요했다.`,
+`지홍은 자료마다 작성자, 날짜, 공개 가능 여부, 최종 확인 상태를 표시하기로 했다. 팀이 같은 기준을 쓰면 지홍이 잠시 자리를 비우더라도 작전은 멈추지 않을 것이다.`
+],[opt('공용 폴더와 확인 담당자를 지정한다','자료 찾는 시간을 줄이고 검증 책임을 명확히 한다.',{intel:3,morale:2,flags:['shared_folder']}),opt('중요 문서만 정리하고 나머지는 뒤로 미룬다','빠르게 시작하지만 일부 자료는 나중에 다시 찾아야 한다.',{influence:1,intel:2,heat:1,flags:['quick_folder']})],'OPERATING RULES'),
+ scene('첫 공지의 글자 수','공식 채널 · 공지 미리보기','상욱',[
+`상욱이 작성한 공지는 화면을 세 번 내려야 끝났다. 제목에는 왕관이 두 개, 본문에는 조항이 열두 개, 마지막에는 다시 왕관이 세 개 있었다. 상욱은 “중요한 내용이 많아서 어쩔 수 없습니다”라고 해명했다.`,
+`지홍은 공지에 꼭 필요한 결론, 이유, 기한, 질문 경로만 남기고 나머지는 별도 문서로 연결하자고 제안했다. 왕의 위엄을 문장 길이로 증명할 필요는 없었다.`
+],[opt('핵심 요약과 상세 문서를 분리한다','읽기 쉽고 자세한 자료도 보존한다.',{influence:3,sang:2,intel:2,flags:['brief_notice']}),opt('준성의 말투는 유지하고 문장만 짧게 고친다','친숙함을 지키면서 가독성을 개선한다.',{sang:3,morale:1,flags:['voice_preserved']})],'NOTICE DESIGN'),
+ scene('알림을 끄는 용기','김지홍의 방 · 알림 설정','지홍',[
+`새벽까지 알림이 울리자 지홍은 모든 메시지를 즉시 확인해야 한다는 압박을 느꼈다. 그러나 모든 알림을 실시간으로 처리하면 중요한 판단을 깊게 생각할 시간이 사라진다. 팀에도 긴급도에 따라 연락하는 규칙이 필요했다.`,
+`지홍은 긴급 상황, 당일 확인, 참고 자료를 구분하고, 응답 시간을 미리 공유하기로 했다. 속도가 빠른 것과 언제나 온라인인 것은 같은 일이 아니었다.`
+],[opt('긴급도별 연락 규칙을 공유한다','팀 피로를 줄이고 중요한 알림은 놓치지 않는다.',{morale:3,intel:2,heat:-1,flags:['notification_rules']}),opt('중요 공지만 알림으로 받고 나머지는 정해진 시간에 확인한다','집중력을 높이지만 즉시 대응은 조금 느려질 수 있다.',{morale:4,influence:1,flags:['quiet_hours']})],'FOCUS'),
+],
+[
+ scene('열두 조항의 우선순위','공용 문서 · 규칙 검토','상욱',[
+`왕의 규칙 초안은 문장마다 중요하다고 표시돼 있었다. 모두가 최우선이면 실제로는 아무것도 우선이 아니다. 상욱은 규칙을 줄이면 준성의 권위가 가벼워 보일까 걱정했지만, 지홍은 규칙의 수보다 실행 가능성이 중요하다고 설명했다.`,
+`팀은 규칙을 반드시 지켜야 하는 핵심 원칙, 매일 적용하는 운영 절차, 필요할 때 참고하는 권고 사항으로 나누기로 했다.`
+],[opt('세 층위로 나눠 공개한다','필수 규칙이 뚜렷해지고 실행이 쉬워진다.',{intel:4,influence:2,sang:2,flags:['rule_tiers']}),opt('규칙 수는 유지하고 각 조항의 담당자를 표시한다','책임자는 명확해지지만 문서가 길게 남는다.',{sang:3,intel:2,flags:['rule_owners']})],'RULE PRIORITY'),
+ scene('예외 조항은 누구를 위한가','왕의 규칙 · 예외 목록','준성',[
+`준성은 “긴급한 일은 왕이 바로 결정할 수 있다”는 조항을 넣고 싶어 했다. 상욱은 그 문장이 있어야 빠르게 움직일 수 있다고 주장했다. 승우는 긴급의 기준이 없다면 어떤 일이든 예외가 될 수 있다고 지적했다.`,
+`지홍은 긴급 권한을 없애기보다 언제 사용할 수 있는지, 누구에게 알리는지, 사후에 무엇을 기록할지를 함께 적자고 제안했다. 권한의 범위를 정하는 일은 권한을 약하게 만드는 것과 다르다.`
+],[opt('긴급 조건·보고 기한·사후 검토를 함께 규정한다','속도와 책임을 함께 지킨다.',{intel:4,influence:2,morale:1,flags:['exception_guardrails']}),opt('사용 사례를 먼저 모아 한시 규칙으로 운영한다','실제 사례를 바탕으로 고칠 수 있다.',{intel:3,heat:1,flags:['exception_trial']})],'EXCEPTIONS'),
+ scene('규칙을 읽었다는 표시','온라인 운영실 · 확인 현황','상욱',[
+`상욱은 공지를 올리면 사람들이 전부 읽었을 것이라 생각했다. 하지만 확인 표시만으로 내용을 이해했다고 단정할 수는 없다. 지홍은 핵심 내용을 짧은 질문으로 확인하거나, 새로운 규칙을 실제 사례에 적용해 보는 방식이 낫다고 판단했다.`,
+`상욱은 규칙을 외우게 하려는 대신 자주 생기는 상황과 대응 예시를 만들기로 했다. 이제 문서는 벽에 걸린 장식이 아니라 실제 일을 돕는 도구가 될 수 있었다.`
+],[opt('상황별 예시와 간단한 확인 질문을 만든다','이해도를 높이고 규칙을 현실에 연결한다.',{sang:3,intel:3,flags:['rule_examples']}),opt('매주 자주 틀리는 항목만 짧게 다시 안내한다','부담은 적지만 깊은 이해는 천천히 쌓인다.',{influence:2,morale:2,flags:['rule_digest']})],'TRAINING'),
+],
+[
+ scene('실행 보고서의 빈칸','공용 문서 · 상욱의 보고','상욱',[
+`상욱의 첫 보고서에는 “완료”라는 단어가 열일곱 번 나왔지만 어떤 일을 어떻게 완료했는지는 적혀 있지 않았다. 상욱은 준성이 빠르게 읽을 수 있도록 쓴 것이라고 설명했다. 지홍은 보고서가 결재를 받는 문서인 동시에 다음 사람에게 일을 이어 주는 기록이라는 점을 알려 줬다.`,
+`보고서에는 목표, 실제 결과, 남은 위험, 다음 담당자를 남기기로 했다. 잘한 일을 자랑하는 것보다 다음 결정에 쓸 수 있는 정보를 제공하는 편이 중요했다.`
+],[opt('목표·결과·위험·다음 담당자 양식을 적용한다','보고서의 실용성을 높인다.',{sang:4,intel:3,flags:['report_template']}),opt('한 장 요약과 상세 부록을 따로 만든다','빠른 보고와 세부 확인을 모두 지원한다.',{influence:2,intel:3,sang:2,flags:['report_layers']})],'REPORT QUALITY'),
+ scene('왕의 지시를 다시 묻기','단체 음성 회의 · 업무 배분','준성',[
+`준성이 “대충 잘 처리해”라고 말했다. 상욱은 즉시 알겠다고 답했지만, 무엇을 언제까지 어느 수준으로 완료해야 하는지는 불분명했다. 예전이라면 상욱이 혼자 추측해 진행했겠지만, 이번에는 확인 질문을 준비했다.`,
+`준성은 처음엔 질문이 많다고 생각했지만, 결국 작업 완료 기준을 함께 정했다. 지시를 되묻는 것은 충성 부족이 아니라 실패를 줄이는 기술일 수 있었다.`
+],[opt('완료 기준과 기한을 말로 확인한 뒤 기록한다','기대 차이로 생길 실수를 줄인다.',{sang:3,morale:3,intel:1,flags:['clear_orders']}),opt('작은 일은 상욱의 판단에 맡기고 결과만 검토한다','현장 자율성을 키운다.',{sang:4,morale:2,flags:['operator_autonomy']})],'CLEAR ORDERS'),
+ scene('보고서의 빨간 글씨','검토 창 · 수정 의견','지홍',[
+`보고서에 빨간 수정 표시가 많아지자 상욱은 자신이 혼난다고 느꼈다. 지홍은 문서의 오류를 고치는 일과 사람을 평가하는 일을 구분해 설명했다. 문제를 발견한 사람이 공격자가 되고, 실수한 사람이 숨으려 들면 다음 보고서는 더 늦어질 것이다.`,
+`팀은 수정 사유를 문서 내용과 연결하고, 반복되는 오류는 표준 양식으로 예방하기로 했다. 신뢰는 무조건 칭찬하는 데서가 아니라 고칠 수 있는 방법을 함께 찾는 데서 생겼다.`
+],[opt('수정 이유를 남기고 양식을 개선한다','학습이 다음 보고서에 이어진다.',{sang:2,morale:3,intel:2,flags:['feedback_learning']}),opt('큰 오류만 직접 검토하고 사소한 표현은 맡긴다','검토 부담을 줄이고 자율성을 높인다.',{morale:2,sang:3,flags:['light_review']})],'FEEDBACK'),
+],
+[
+ scene('인맥 목록의 유효기간','호택의 연락처 보드','호택',[
+`호택의 연락처 목록에는 몇 년 전 만난 사람부터 막 추가한 업체까지 수백 개의 이름이 들어 있었다. 이름이 많다는 사실만으로 오늘 도움을 받을 수 있다는 보장은 없다. 지홍은 연락처마다 마지막 확인 날짜, 도움을 요청할 수 있는 분야, 답변 여부를 기록하자고 했다.`,
+`호택은 인맥이 줄어드는 것 같아 처음엔 망설였지만, 오래된 연락처를 무작정 돌리는 것보다 실제로 연결되는 관계를 관리하는 편이 낫다는 데 동의했다.`
+],[opt('연락처를 최근성·분야·확인 상태로 분류한다','실제 쓸 수 있는 협력 자원을 파악한다.',{hotek:4,intel:3,flags:['contacts_verified']}),opt('새로운 연락처 확보에 집중한다','연결은 늘지만 검증과 관리 부담이 커진다.',{hotek:3,influence:2,heat:2,flags:['contacts_expand']})],'NETWORK AUDIT'),
+ scene('공짜 지원의 조건','호택의 메일함 · 제안서 검토','호택',[
+`한 업체가 장비를 무료로 지원하겠다고 제안했다. 대신 행사 화면에 업체 이름을 크게 표시하고, 이후 구매 상담을 연결해 달라는 조건이 붙어 있었다. 현금 지출을 줄일 수 있지만, 공개 행사가 광고판처럼 보일 위험도 있었다.`,
+`지홍은 지원받는다는 사실과 그 조건을 숨기지 말고, 행사의 목적과 충돌하는지 검토하자고 했다. 공짜라는 단어는 비용이 없다는 뜻이 아니라 비용을 다른 방식으로 지불한다는 뜻일 수도 있었다.`
+],[opt('지원 조건을 공개하고 행사 목적에 맞게 조정한다','투명성을 지키면서 필요한 자원을 활용한다.',{hotek:3,influence:3,intel:2,flags:['sponsorship_open']}),opt('조건이 과하면 현금 지출을 감수하고 거절한다','독립성을 지키지만 자금 여력이 줄어든다.',{morale:2,influence:1,cash:-3,flags:['sponsorship_declined']})],'FREE OFFER'),
+ scene('답장이 없는 연락처','호택의 협력 보드 · 대기 목록','호택',[
+`호택은 열두 곳에 협력 요청을 보냈지만 답장은 세 곳에서만 왔다. 그는 연락이 없는 곳에 더 강하게 재촉하자고 했다. 승우는 상대의 일정과 관심사가 다를 수 있다고 말했다. 지홍은 답변이 없다는 것도 정보이며, 무한히 쫓아가는 것이 전략은 아니라고 정리했다.`,
+`협력 요청에는 한 번의 정중한 후속 연락과 명확한 답변 기한을 두고, 그 뒤에는 대체 방안을 준비하기로 했다.`
+],[opt('후속 연락 기한과 대체 협력자를 함께 정한다','시간 낭비를 줄이고 선택지를 남긴다.',{hotek:3,intel:2,heat:-1,flags:['followup_window']}),opt('핵심 협력처에는 직접 설명할 자리를 요청한다','관계가 강화될 수 있지만 시간이 더 든다.',{hotek:4,morale:1,flags:['personal_outreach']})],'FOLLOW-UP'),
+],
+[
+ scene('서로 다른 기억','승우의 음성 메모 · 파일 비교','승우',[
+`승우가 기억하는 첫 왕국 회의 날짜와 스프레드시트에 적힌 날짜가 달랐다. 둘 중 하나가 거짓말을 했다고 볼 필요는 없었다. 메모는 다음 날 작성됐을 수도 있고, 친구들이 그날의 농담을 다른 순간과 섞어 기억했을 수도 있었다.`,
+`지홍은 하나의 기록을 억지로 정답으로 만들기보다, 확인된 사실과 추정되는 부분을 분리해 표시했다. 기억은 중요한 자료지만 확인 방법을 함께 남길 때 더 안전하게 사용할 수 있었다.`
+],[opt('확인된 정보와 추정을 별도 열로 분리한다','근거의 강도를 명확히 표시한다.',{intel:4,seung:3,flags:['memory_confidence']}),opt('자료마다 작성 시점과 출처를 함께 적는다','기록의 맥락을 잃지 않는다.',{seung:4,intel:2,flags:['source_tags']})],'MEMORY CHECK'),
+ scene('복사본의 함정','작전 폴더 · 버전 충돌','지홍',[
+`같은 문서의 세 가지 복사본에서 숫자가 조금씩 달랐다. 누군가는 오래된 버전을 고쳤고, 누군가는 최신이라고 생각한 파일에 내용을 덧붙였다. 승우는 작성자별 변경 기록을 비교해 가장 최신 버전을 찾았다.`,
+`다음부터는 원본 하나를 기준으로 하고, 수정 담당자와 시간을 남기며, 확정된 문서는 읽기 전용으로 보관하기로 했다. 기록을 많이 남기는 것보다 어떤 기록이 기준인지 분명히 하는 일이 중요했다.`
+],[opt('단일 원본과 변경 기록 규칙을 만든다','문서 충돌을 예방한다.',{intel:4,seung:2,flags:['single_source']}),opt('확정본은 별도 보관하고 변경 요청만 모은다','승인 전후를 분명하게 구분한다.',{intel:3,morale:2,flags:['locked_archive']})],'VERSION CONTROL'),
+ scene('공개할 수 없는 문장','승우의 기록 · 비공개 메모','승우',[
+`장부에는 작전과 관계없는 사적인 농담도 들어 있었다. 전체 기록을 공개하면 투명성은 높아 보일지 모르지만, 필요하지 않은 대화까지 퍼뜨릴 수 있다. 승우는 원본이 지워지지 않도록 보관하면서 공개에 필요한 부분만 별도 문서로 만들었다.`,
+`지홍은 기록을 공개하는 목적을 먼저 적어 두고, 목적에 필요하지 않은 정보는 제외하기로 했다. 숨기는 것과 보호하는 것은 같지 않았지만, 그 차이는 설명할 수 있어야 했다.`
+],[opt('공개 목적과 제외 기준을 명시한 요약본을 만든다','기록 보호와 설명 책임을 함께 지킨다.',{seung:3,morale:2,influence:2,flags:['limited_disclosure']}),opt('독립 검토자가 원본과 요약본을 비교하게 한다','정확성을 높이지만 준비 시간이 든다.',{intel:4,seung:2,flags:['independent_archive']})],'ARCHIVE ETHICS'),
+],
+[
+ scene('응답률을 올리는 방법','설문 초안 · 질문 설계','지홍',[
+`설문 초안에는 “왕의 운영에 찬성합니까?”라는 질문만 있었다. 이 질문은 사람들의 의견을 한 줄로 줄여 버린다. 준성의 호칭에는 찬성하지만 예산 공개는 더 원할 수도 있고, 왕이라는 상징보다 구체적인 업무 개선을 중요하게 생각할 수도 있다.`,
+`지홍은 질문을 여러 주제로 나누고 선택지뿐 아니라 짧은 서술형 응답도 받기로 했다. 설문 결과는 왕을 좋아하는 사람 수를 세는 도구가 아니라, 무엇을 어떻게 개선할지 알아보는 도구가 되어야 했다.`
+],[opt('정책·소통·책임을 나눈 설문을 만든다','의견의 세부 차이를 확인한다.',{intel:4,influence:2,flags:['survey_dimensions']}),opt('짧은 설문과 자유 의견을 함께 받는다','참여 부담을 줄이고 새로운 문제를 찾는다.',{influence:3,morale:2,flags:['short_survey']})],'SURVEY DESIGN'),
+ scene('표본은 누구인가','설문 대시보드 · 응답 구성','승우',[
+`설문 응답을 분석하니 온라인 활동이 활발한 사람들의 비중이 컸다. 참여한 사람의 의견은 중요하지만, 그 집단이 전체 의견을 대표한다고 단정할 수는 없다. 승우는 응답 경로와 참여 시점을 함께 적고, 결과를 해석할 때 한계를 명시하자고 했다.`,
+`지홍은 표본의 한계를 감추지 않는 것이 결과를 약하게 만들기보다, 사람들이 숫자를 올바르게 읽게 만드는 일이라고 판단했다.`
+],[opt('응답 경로별 차이를 표시하고 한계를 공개한다','결과의 해석 가능성을 높인다.',{intel:4,influence:2,flags:['sample_limits']}),opt('추가 응답을 받을 시간을 더 확보한다','자료가 넓어질 수 있지만 결과 발표가 늦어진다.',{influence:2,intel:3,heat:1,flags:['sample_extension']})],'SAMPLE BIAS'),
+ scene('비판을 업무로 바꾸기','정책 보드 · 개선 요청','준성',[
+`공개된 의견에는 날카로운 표현도 있었지만, 그 안에는 실제 문제를 지적하는 내용이 섞여 있었다. 준성은 모든 비판에 답하려고 하면 끝이 없다고 했다. 지홍은 모든 비판에 동의할 필요는 없지만, 구체적인 문제 제기라면 검토할지 말지 이유를 남길 수 있다고 말했다.`,
+`비판을 업무로 바꾸기 위해서는 담당자와 기한, 완료 기준이 필요했다. 감정적인 논쟁을 반복하는 대신 해결 가능한 문제부터 하나씩 처리하기로 했다.`
+],[opt('요청마다 담당자·기한·처리 상태를 붙인다','말을 실행 계획으로 바꾼다.',{influence:3,intel:3,flags:['feedback_tracker']}),opt('반복되는 문제 세 개부터 시범 개선한다','범위를 좁혀 결과를 빠르게 확인한다.',{morale:2,influence:3,heat:-1,flags:['three_pilots']})],'FEEDBACK TO ACTION'),
+],
+[
+ scene('숫자만 남은 사과문','초안 비교 · 문장 편집','지홍',[
+`첫 사과문 초안은 날짜와 사실관계만 가득했고, 실제로 혼란을 겪은 사람들의 입장은 거의 보이지 않았다. 반대로 감정적인 표현을 크게 늘리면 무엇을 잘못했고 어떻게 고칠지 흐려질 수 있었다.`,
+`지홍은 확인된 사실, 영향받은 사람들에 대한 인정, 바꿀 절차, 후속 보고 날짜를 순서대로 정리했다. 감정과 사실을 서로 경쟁시키지 않는 사과문이 필요했다.`
+],[opt('사실·영향·개선·기한 순으로 재구성한다','책임 표현과 실행 계획을 함께 담는다.',{influence:3,intel:3,heat:-2,flags:['apology_structure']}),opt('영향을 받은 사람들에게 먼저 질문을 받고 문구를 조정한다','현장의 맥락을 더 반영할 수 있다.',{morale:3,influence:2,heat:1,flags:['apology_listen']})],'APOLOGY REVIEW'),
+ scene('규칙을 악용하는 댓글','온라인 광장 · 운영 도구','상욱',[
+`일부 계정은 댓글 제한 기준의 경계를 시험하듯 비슷한 문장을 조금씩 바꿔 반복했다. 상욱은 강하게 막자고 했지만, 경계를 넓히면 정당한 비판까지 제한될 수 있었다. 지홍은 내용에 대한 반대와 운영 규칙 위반을 구분하고, 조치 이유를 남기기로 했다.`,
+`운영팀은 반복 도배, 개인정보 노출, 직접적인 위협을 제한 대상으로 삼고, 정책 비판은 남겨 두기로 했다. 제한된 글에는 이유와 이의 제기 경로가 표시된다.`
+],[opt('위반 유형과 이의 제기 절차를 함께 공개한다','운영 기준을 예측 가능하게 만든다.',{intel:3,influence:3,heat:-1,flags:['moderation_appeal']}),opt('위험이 큰 계정은 임시 제한 후 검토한다','피해를 줄이지만 오판을 바로잡을 절차가 필요하다.',{heat:-3,intel:2,sang:1,flags:['temporary_restrictions']})],'MODERATION BOUNDARY'),
+ scene('최초 게시 시각','자료 검증 · 시간대 확인','승우',[
+`잘린 캡처에 표시된 시각과 원본 대화의 시각이 달랐다. 화면을 저장한 기기의 시간 설정이 달랐을 수도 있고, 이미지가 편집되며 일부 정보가 사라졌을 수도 있었다. 승우는 한 장의 이미지에 의존하지 않고 원본 기록의 순서를 교차 확인했다.`,
+`검증 결과는 의혹을 전부 없애지는 못했지만, 어떤 부분이 확실하고 어떤 부분이 불명확한지 구분할 수 있게 했다. 확인되지 않은 추측은 공식 입장에 넣지 않기로 했다.`
+],[opt('원본 기록과 편집본의 차이를 표로 공개한다','사실과 불확실성을 함께 설명한다.',{intel:4,influence:2,flags:['timeline_compare']}),opt('검증이 끝난 핵심 사실만 먼저 발표한다','불필요한 세부 정보를 줄인다.',{influence:3,heat:-1,flags:['verified_facts_only']})],'TIMELINE'),
+],
+[
+ scene('우천 기준선','축제 운영 문서 · 안전 기준','상욱',[
+`현장 팀은 비가 어느 정도 오면 일정을 줄여야 하는지 합의하지 않은 상태였다. 당일 분위기에 따라 판단하면 안전보다 행사 진행을 우선할 수 있다. 지홍은 비, 바람, 장비 상태, 이동 동선을 기준으로 중단·전환 조건을 적자고 했다.`,
+`상욱은 기준을 사전에 공유하면 당일에는 감정적인 설득 없이도 결정을 내릴 수 있다는 데 동의했다. 지홍은 안전 책임과 보고 경로를 함께 적었다.`
+],[opt('중단 기준과 대체 경로를 문서화한다','예측 가능한 대응으로 현장 혼선을 줄인다.',{intel:3,morale:2,flags:['weather_thresholds']}),opt('현장 책임자가 기준표 안에서 즉시 결정하도록 한다','현장 대응 속도를 높인다.',{sang:3,morale:2,flags:['field_safety_authority']})],'SAFETY LINE'),
+ scene('현장 질문의 전달','온라인 운영실 · 질문 분류','승우',[
+`현장에서는 손을 들어 질문할 수 있었지만, 온라인으로 접속한 사람들은 채팅에 질문을 남겨야 했다. 질문이 한꺼번에 몰리자 일부는 화면에서 사라졌다. 승우는 접수 번호를 붙이고, 답변 상태를 공개해 누락을 확인할 수 있도록 했다.`,
+`지홍은 질문의 수를 줄이는 것보다 질문이 전달됐다는 확신을 주는 것이 중요하다고 봤다. 답변이 늦어질 때도 이유와 예상 처리 날짜를 알려 주기로 했다.`
+],[opt('모든 질문에 접수 번호와 처리 상태를 부여한다','누락을 확인할 수 있어 신뢰가 커진다.',{intel:3,influence:2,seung:2,flags:['question_receipts']}),opt('비슷한 질문을 묶고 원문 목록은 별도 공개한다','효율을 높이면서 원문을 보존한다.',{intel:2,influence:3,flags:['question_grouping']})],'QUESTION PIPELINE'),
+ scene('행사 끝나고도 남는 일','작전실 · 후속 업무 목록','지홍',[
+`행사 종료 알림이 뜨자 팀원들은 잠깐 안도했다. 그러나 공개적으로 약속한 일은 행사와 함께 끝나지 않았다. 자료 정리, 비용 정산, 미답변 질문, 안전 회고, 다음 보고 일정이 남아 있었다.`,
+`지홍은 이벤트 당일의 성공을 완성된 프로젝트로 착각하지 않기로 했다. 후속 업무를 담당자와 기한으로 나누고, 다음 회의 전까지 완료 상태를 확인하기로 했다.`
+],[opt('후속 업무 대시보드를 만들고 담당자를 지정한다','행사 뒤의 약속을 실제로 관리한다.',{intel:3,influence:2,morale:2,flags:['event_followup']}),opt('가장 시급한 미답변부터 처리하고 나머지는 주간 계획에 넣는다','긴급도를 기준으로 일의 순서를 정한다.',{influence:2,morale:2,intel:1,flags:['followup_priorities']})],'POST-EVENT'),
+],
+[
+ scene('발언 시간과 존중','공개 회의 · 리허설','상욱',[
+`리허설 중 한 발언자가 정해진 시간을 넘겼다. 상욱은 마이크를 바로 끄려 했지만, 그 사람은 답변을 듣지 못했다고 항의했다. 발언 시간 규칙이 모두에게 공정하려면 진행자가 시간을 지키는 일과 질문이 실제로 처리되는 일이 함께 보장되어야 했다.`,
+`지홍은 타이머와 질문 상태 표시를 함께 도입하자고 했다. 시간이 끝나면 발언을 요약해 확인하고, 남은 내용은 후속 질문으로 등록한다. 마이크를 끄는 것만으로 회의가 공정해지지는 않는다.`
+],[opt('시간 알림과 후속 질문 등록을 한 세트로 도입한다','공정한 시간 관리와 답변 책임을 연결한다.',{sang:3,influence:2,intel:2,flags:['time_and_followup']}),opt('진행자가 남은 질문을 요약하고 다음 발언으로 넘긴다','흐름은 유지되지만 진행자 역량에 더 의존한다.',{sang:2,morale:2,flags:['moderator_summary']})],'TIME FAIRNESS'),
+ scene('회의록의 첫 문장','공개 회의 · 요약본 초안','승우',[
+`회의록 초안의 첫 문장은 “성공적으로 개최됨”이었다. 그러나 누구나 성공이라고 느낀 것은 아닐 수 있다. 승우는 참석자 수, 다룬 안건, 합의된 사항, 보류된 사항, 다음 일정이 들어가야 실제 결과를 설명할 수 있다고 말했다.`,
+`회의록은 주최자의 홍보문이 아니라 함께 결정한 내용을 확인하는 도구다. 지홍은 미완료 항목도 숨기지 말고 표시하자고 했다.`
+],[opt('합의·보류·미답변·다음 일정으로 요약한다','결과를 과장하지 않고 후속 작업을 드러낸다.',{seung:3,intel:3,influence:2,flags:['minutes_complete']}),opt('한 페이지 요약과 전체 기록을 함께 공개한다','읽기 쉬움과 상세 기록을 모두 보장한다.',{influence:2,intel:3,flags:['minutes_layers']})],'MINUTES'),
+ scene('반대 의견이 남는 자리','회의 후속 게시판','준성',[
+`공개 회의가 끝난 뒤에도 일부 참석자는 결론에 동의하지 않는다고 글을 남겼다. 준성은 모든 사람을 설득하지 못했다는 사실이 마음에 걸렸지만, 반대 의견이 남아 있다는 것 자체가 회의가 실패했다는 뜻은 아니었다. 중요한 것은 의견이 기록되고, 결정 이유가 설명됐으며, 다시 검토할 시점이 정해졌는지였다.`,
+`지홍은 반대 의견을 별도 부록에 남기고 다음 규칙 검토 때 다시 살펴보도록 했다. 합의는 침묵과 같지 않았다.`
+],[opt('반대 의견과 결정 이유를 나란히 기록한다','이견을 지우지 않고 결정의 근거를 보존한다.',{influence:3,morale:3,flags:['dissent_recorded']}),opt('보류된 쟁점을 다음 회의 의제로 예약한다','논쟁을 이어 가되 시점과 범위를 정한다.',{intel:2,influence:2,morale:2,flags:['dissent_agenda']})],'DISSENT'),
+],
+[
+ scene('협상은 누가 기록하는가','비공개 채널 · 회의 설정','승우',[
+`비공개 협상에 관한 메모는 상욱의 개인 계정에만 저장돼 있었다. 만약 상욱이 접속할 수 없거나 메시지를 잃어버리면 합의의 근거가 사라질 수 있었다. 승우는 민감한 내용도 기록 담당자와 보관 위치가 명확해야 한다고 말했다.`,
+`지홍은 열람 권한을 최소한으로 두되, 협상 결과와 합의된 원칙은 정해진 저장소에 남기기로 했다. 비밀을 유지하는 것과 기록을 없애는 것은 다른 일이었다.`
+],[opt('기록 담당자를 정하고 접근 권한을 나눈다','보안과 업무 연속성을 함께 보장한다.',{intel:4,seung:2,flags:['secure_minutes']}),opt('협상 요약만 공용 보관소에 남긴다','민감한 대화를 보호하면서 결과를 보존한다.',{intel:2,influence:2,flags:['negotiation_summary']})],'SECRET MINUTES'),
+ scene('합의문에 들어갈 동사','합의 초안 · 문장 검토','지홍',[
+`합의 초안에는 “가능하면 공개한다”, “필요할 때 논의한다”, “적절히 개선한다” 같은 표현이 많았다. 이런 말은 부드럽지만 언제 무엇을 해야 하는지 확인하기 어렵다. 호택은 문장이 딱딱해진다고 걱정했지만, 지홍은 기한과 담당자가 있어야 실제로 확인할 수 있다고 설명했다.`,
+`최종 합의문에는 누가, 무엇을, 언제까지, 어떤 방식으로 공개할지 적기로 했다. 모든 세부사항을 지금 결정할 수는 없지만, 미정인 항목도 다음 검토 날짜를 가질 수 있었다.`
+],[opt('담당자·기한·공개 방식으로 문장을 구체화한다','실행 여부를 검토할 수 있다.',{intel:3,influence:3,flags:['clear_agreement']}),opt('핵심 원칙만 합의하고 세부 일정은 시범 운영 후 정한다','유연성을 남기되 초기 기준이 필요하다.',{morale:2,intel:2,flags:['trial_agreement']})],'WORDING'),
+ scene('왕에게 불편한 보고','왕의 채팅 · 리스크 메모','상욱',[
+`상욱은 최종 행사에서 비용 초과가 발생할 수 있다는 보고를 망설였다. 준성을 걱정하게 만들고 싶지 않았기 때문이다. 하지만 늦게 알리면 대안이 줄어든다. 상욱은 문제만 던지는 대신 가능한 대안과 각각의 비용을 함께 준비하기로 했다.`,
+`준성은 불편한 소식도 일찍 듣는 편이 낫다고 말했다. 왕에게 충성한다는 것은 나쁜 소식을 감추는 게 아니라, 해결할 수 있는 시간에 알려 주는 일일 수 있었다.`
+],[opt('위험·대안·결정 시한을 한 번에 보고한다','불편한 정보도 실행 가능한 형태로 전달한다.',{sang:4,morale:2,intel:2,flags:['bad_news_early']}),opt('비용 초과 가능성을 알리고 팀과 공동 해결안을 만든다','문제를 함께 풀며 부담을 나눈다.',{sang:2,morale:3,hotek:1,flags:['shared_risk']})],'BAD NEWS'),
+],
+[
+ scene('비상 연락망의 두 번째 줄','최종 준비 · 연락 체계','호택',[
+`최종 행사 연락망에는 각 분야의 주 담당자만 적혀 있었다. 누군가 메시지를 확인하지 못하면 그 일은 멈출 수 있다. 호택은 대체 연락처와 대체 업체를 함께 적고, 어떤 상황에서 다음 단계로 넘어갈지 기준을 만들었다.`,
+`지홍은 연락처를 많이 갖는 것보다 실제로 응답 가능한지 확인하는 것이 중요하다고 적었다. 대체 경로가 있으면 긴급한 상황에서 한 사람에게 모든 책임이 몰리지 않는다.`
+],[opt('대체 연락처를 확인하고 실제 응답 테스트를 한다','연락 체계의 신뢰도를 높인다.',{hotek:3,intel:2,flags:['contact_test']}),opt('연락망은 핵심 인원만 공유하고 외부 공개를 막는다','개인정보를 보호하면서 필요한 접근을 유지한다.',{hotek:2,morale:2,flags:['contact_privacy']})],'BACKUP CONTACTS'),
+ scene('최종 발표문 읽기 테스트','온라인 리허설 · 이해도 점검','승우',[
+`발표문을 읽어 본 사람마다 이해한 핵심이 조금씩 달랐다. 어떤 이는 왕의 권한이 줄어든다고 생각했고, 어떤 이는 아무것도 바뀌지 않는다고 느꼈다. 준성은 표현이 충분히 명확한지 확인하고 싶어 했다.`,
+`지홍은 문장을 더 멋있게 만드는 대신, 듣는 사람이 자신의 말로 핵심을 설명할 수 있는지 간단히 확인하자고 했다. 중요한 발표는 말한 사람의 의도만으로 완성되지 않는다.`
+],[opt('핵심 메시지를 다른 사람에게 설명해 보게 한다','오해가 생기는 표현을 찾는다.',{intel:3,influence:2,flags:['message_test']}),opt('짧은 요약본과 세부 자료를 함께 배포한다','다양한 독해 방식에 대응한다.',{influence:3,intel:1,flags:['message_layers']})],'MESSAGE TEST'),
+ scene('휴식 시간의 가치','김지홍의 방 · 마지막 준비','지홍',[
+`작전판의 항목을 하나씩 확인하자 놓친 것은 거의 없었다. 하지만 지홍은 자신과 팀이 지쳐 가고 있다는 점을 알아차렸다. 집중력이 떨어진 상태에서 마지막으로 문장을 수정하면 새 오류가 생길 수도 있었다.`,
+`지홍은 정해진 시각에 최종 자료를 잠그고, 이후에는 실제 오류나 안전 문제만 수정하기로 했다. 완벽함을 추구하다가 안정된 계획을 흔들지 않는 것도 참모의 판단이었다.`
+],[opt('자료 마감 시간을 정하고 긴급 수정만 허용한다','마지막 순간의 혼란을 줄인다.',{morale:4,intel:1,heat:-1,flags:['freeze_window']}),opt('팀별 최종 확인을 받고 잠시 쉬게 한다','관계와 집중력을 회복한다.',{morale:4,sang:1,seung:1,hotek:1,flags:['team_rest']})],'REST WINDOW'),
+],
+[
+ scene('투표 규칙을 다시 읽다','최종 행사 · 집계 기준표','승우',[
+`행사 시작 전에 투표 규칙을 다시 읽던 승우가 사소한 모호함을 발견했다. 기권이나 중복 응답을 어떻게 처리할지 문구가 충분히 분명하지 않았다. 작은 문장이지만 결과가 공개된 뒤에 발견되면 큰 의혹으로 번질 수 있었다.`,
+`지홍은 규칙을 시작 전에 다시 설명하고, 이미 접수된 응답에 영향을 주는 변경은 하지 않기로 했다. 필요하면 집계 보류 사유를 공개하고 수정된 절차를 안내해야 했다.`
+],[opt('집계 기준을 명확하게 설명하고 검증 담당자를 지정한다','결과를 이해하고 검토할 수 있게 한다.',{intel:4,influence:2,flags:['counting_rules']}),opt('불명확한 항목은 집계 전 공동 확인을 거친다','공정성을 높이지만 일정이 조금 늦어진다.',{intel:3,morale:2,heat:-1,flags:['joint_count_review']})],'COUNTING RULES'),
+ scene('질문을 끝까지 듣기','최종 토론 · 예상 밖의 발언','준성',[
+`한 참석자가 준비된 의제와 다른 질문을 시작했다. 운영팀은 의제 밖 질문을 나중으로 미루자고 했지만, 질문자는 자신이 계속 같은 답변을 받지 못했다고 설명했다. 준성은 말을 끊지 않고 끝까지 듣기로 했다.`,
+`질문 전체를 듣고 나니 단순한 반대가 아니라 두 부서 사이의 책임이 분명하지 않다는 문제였다. 지홍은 질문을 담당 부서와 연결하고, 답변 기한을 공개했다. 예상 밖의 질문도 운영 문제를 발견하는 신호가 될 수 있었다.`
+],[opt('질문을 끝까지 듣고 담당자와 기한을 등록한다','현장 신호를 실제 후속 조치로 연결한다.',{influence:3,morale:2,intel:2,flags:['listen_to_end']}),opt('핵심만 요약하고 본 의제 후 별도 답변한다','일정은 지키면서 질문을 놓치지 않는다.',{intel:2,influence:2,flags:['off_agenda_followup']})],'LISTEN'),
+ scene('결과 발표 직전','김지홍의 방 · 최종 승인','지홍',[
+`마지막 집계표가 올라왔다. 결과를 조금 더 좋게 보이도록 표현을 바꾸자는 제안은 없었지만, 어느 수치를 첫 화면에 배치하느냐를 두고 의견이 갈렸다. 영향력이 큰 수치만 강조하면 결과를 과장해 보일 수 있었다.`,
+`지홍은 결과 요약과 함께 참여 규모, 집계 방법, 한계, 후속 일정도 같은 화면에서 확인할 수 있게 하자고 했다. 결과를 있는 그대로 설명하는 것이 마지막 작전의 핵심이었다.`
+],[opt('요약 수치와 집계 방법·한계를 함께 공개한다','결과를 투명하게 전달한다.',{intel:3,influence:3,heat:-1,flags:['honest_results']}),opt('핵심 결과를 먼저 알리고 상세 자료를 즉시 연결한다','빠르게 전달하면서 검증 자료를 제공한다.',{influence:3,intel:2,flags:['result_summary']})],'RESULTS'),
+]
+];
+EXTRA_SCENES.forEach((list,i)=>{const episode=episodes[i];if(episode)episode.scenes.splice(Math.max(0,episode.scenes.length-1),0,...list);});
+
+function addNode(node){NODES[node.id]=node;}
+episodes.forEach((e,idx)=>{
+ const ch=idx+1;
+ const created=e.scenes.map((s,j)=>({...s,id:`c${ch}s${j+1}`,type:'scene',ch,isLast:j===e.scenes.length-1}));
+ created.forEach((n,j)=>{
+   n.choices=n.choices.map(c=>({...c,next:(ch===12&&j===created.length-1)?'ending':(j===0?`c${ch}hub`:(j<created.length-1?created[j+1].id:`c${ch+1}s1`))}));
+   addNode(n);
+ });
+ const hub={id:`c${ch}hub`,type:'hub',ch,title:`작전 통제실 ${String(ch).padStart(2,'0')}`,place:'김지홍의 방 · 준비 단계',speaker:'작전 통제실',emblem:'COMMAND HUB',next:created[1]?.id||`c${ch+1}s1`,side:e.side};
+ addNode(hub);
+});
+NODES.ending={id:'ending',type:'ending',ch:12,title:'작전 종료 · 여수의 왕과 방구석 참모',place:'김지홍의 방 · 결과 보고',speaker:'작전 결과',emblem:'CAMPAIGN COMPLETE'};
+let state=null;
+let activePage='story';
+let toastTimer=null;
+const clamp=(v,min=0,max=100)=>Math.max(min,Math.min(max,v));
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const freshState=()=>({node:'prologue',stats:{cash:36,intel:28,influence:28,morale:62,heat:12},rel:{sang:38,seung:40,hotek:40},flags:[],chapterDone:[],maxChapter:0,ap:3,hubChapter:0,usedOps:[],sideDone:[],log:[],nodeVisits:{},startedAt:Date.now(),endingChoice:'ending_reform'});
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2300);}
+function showModal(title,html){$('modalTitle').textContent=title;$('modalBody').innerHTML=html;$('modalBack').classList.remove('hidden');}
+function closeModal(){$('modalBack').classList.add('hidden');}
+function effectText(fx){if(!fx)return [];const out=[];for(const [k,v] of Object.entries(fx)){if(k==='flags'||!v)continue;const label=STAT_META[k]?.label||REL_META[k]?.name;if(label)out.push(`${label} ${v>0?'+':''}${v}`);}return out;}
+function applyFx(fx={}){
+ const changes=[];
+ for(const [k,v] of Object.entries(fx)){
+  if(k==='flags'&&Array.isArray(v)){for(const f of v){if(!state.flags.includes(f))state.flags.push(f);}continue;}
+  if(Object.prototype.hasOwnProperty.call(state.stats,k)){const before=state.stats[k];state.stats[k]=clamp(before+Number(v||0));const d=state.stats[k]-before;if(d)changes.push(`${STAT_META[k].label} ${d>0?'+':''}${d}`);}
+  else if(Object.prototype.hasOwnProperty.call(state.rel,k)){const before=state.rel[k];state.rel[k]=clamp(before+Number(v||0));const d=state.rel[k]-before;if(d)changes.push(`${REL_META[k].name} 호감 ${d>0?'+':''}${d}`);}
+ }
+ return changes;
+}
+function saveGame(silent=false){if(!state)return;try{localStorage.setItem(KEY,JSON.stringify(state));if(!silent)toast('진행 상황을 저장했어.');refreshContinue();}catch(e){if(!silent)toast('저장 공간에 접근할 수 없어. 브라우저 설정을 확인해 줘.');}}
+function loadGame(){try{const raw=localStorage.getItem(KEY);if(!raw)return null;const v=JSON.parse(raw);if(!v||!v.node||!v.stats||!NODES[v.node])return null;return v;}catch(e){return null;}}
+function refreshContinue(){const has=!!loadGame();$('continue').disabled=!has;$('continue').style.opacity=has?'1':'.45';$('continue').textContent=has?'이어하기 ↗':'이어하기 (저장 없음)';}
+function beginGame(){state=freshState();activePage='story';$('title').style.display='none';$('game').style.display='block';saveGame(true);render();toast('작전 통제실 가동. 첫 알림을 확인하자.');}
+function resumeGame(){const loaded=loadGame();if(!loaded){toast('이어 할 저장 데이터가 없어.');return;}state=loaded;activePage='story';$('title').style.display='none';$('game').style.display='block';render();toast('저장된 작전을 불러왔어.');}
+function returnTitle(){saveGame(true);$('game').style.display='none';$('title').style.display='grid';refreshContinue();}
+function go(target){
+ const cur=NODES[state.node];
+ if(cur&&cur.isLast&&cur.ch){if(!state.chapterDone.includes(cur.ch))state.chapterDone.push(cur.ch);}
+ if(cur&&cur.ch)state.maxChapter=Math.max(state.maxChapter,cur.ch);
+ state.node=target;
+ const next=NODES[target];
+ if(next&&next.type==='hub'&&state.hubChapter!==next.ch){state.hubChapter=next.ch;state.ap=3;state.usedOps=[];}
+ if(next&&next.ch)state.maxChapter=Math.max(state.maxChapter,next.ch);
+ state.nodeVisits[target]=(state.nodeVisits[target]||0)+1;
+ activePage='story';saveGame(true);render();
+}
+function chooseChoice(i){const n=NODES[state.node];if(!n||!n.choices||!n.choices[i])return;const c=n.choices[i];const changes=applyFx(c.fx);if(c.fx?.flags){const e=c.fx.flags.find(f=>f.startsWith('ending_'));if(e)state.endingChoice=e;}
+ state.log.push({chapter:n.ch||0,title:n.title,choice:c.label,changes,at:Date.now()});go(c.next||'ending');if(changes.length)toast(changes.join(' · '));}
+function renderHeader(){const n=NODES[state.node];const ch=n?.ch||0;$('chapterTop').textContent=ch?`CHAPTER ${String(ch).padStart(2,'0')} / 12`:'PROLOGUE';const goals={prologue:'채팅방에서 날아온 초대장을 확인하고 참모직을 결정한다.',hub:'작전 행동을 사용하고 추가 사건을 확인한 뒤 본 임무로 돌아간다.',ending:'결과를 확인하고 캠페인을 마무리한다.'};$('objective').textContent=n?.type==='hub'?goals.hub:n?.type==='ending'?goals.ending:(n?.title||'다음 작전을 준비한다.');}
+function renderRight(){
+ const stats=Object.keys(STAT_META).map(k=>{const m=STAT_META[k],v=state.stats[k];return `<div class="stat"><div class="stat-label"><span>${m.label}</span><b>${v}/100</b></div><div class="track"><div class="${m.kind}" style="width:${v}%"></div></div><div class="tiny">${m.detail}</div></div>`;}).join('');
+ const rel=Object.keys(REL_META).map(k=>{const m=REL_META[k],v=state.rel[k];return `<div class="stat"><div class="stat-label"><span>${m.name}</span><b>${v}/100</b></div><div class="track"><div class="influence" style="width:${v}%"></div></div><div class="tiny">${m.role}</div></div>`;}).join('');
+ const completed=state.chapterDone.length;const sideDone=state.sideDone.length;
+ $('right').innerHTML=`<section class="right-section"><div class="right-head"><span>작전 자원</span><span class="tiny">REAL-TIME</span></div>${stats}<div class="heat-note">여론 열기가 높으면 갈등이 커질 수 있어. 정보와 사기를 함께 관리해.</div></section><section class="right-section"><div class="right-head"><span>팀 관계</span><span class="tiny">TRUST</span></div>${rel}</section><section class="right-section"><div class="right-head"><span>캠페인 기록</span><span class="tiny">SAVE</span></div><div class="mini-grid"><div><b>${completed}/12</b><span>완료 챕터</span></div><div><b>${sideDone}/12</b><span>추가 사건</span></div><div><b>${state.log.length}</b><span>결정 기록</span></div><div><b>${state.ap}</b><span>준비 행동</span></div></div></section>`;
+}
+function renderScene(n){
+ const ch=n.ch?episodes[n.ch-1]:null;const progress=n.ch?`CHAPTER ${String(n.ch).padStart(2,'0')} · ${esc(ch?.title||'작전')}`:'OPENING SEQUENCE';
+ let body=n.body.map(p=>`<p>${esc(p)}</p>`).join('');
+ if(state.stats.heat>=70)body+=`<div class="inline-alert"><b>긴장 경보</b><p>여론 열기가 높아 작은 실수도 크게 번질 수 있다. 공격적인 선택보다 사실 확인과 역할 분담을 고려해 보자.</p></div>`;
+ if(state.stats.morale<=25)body+=`<div class="inline-alert"><b>팀 피로 경보</b><p>팀 사기가 낮다. 반복되는 지시를 줄이고 역할을 믿어 주는 선택이 도움이 될 수 있다.</p></div>`;
+ const choices=n.choices.map((c,i)=>`<button class="choice" data-choice="${i}"><span class="choice-num">${String(i+1).padStart(2,'0')}</span><span class="choice-content"><b>${esc(c.label)}</b><span>${esc(c.desc)}</span></span><span class="choice-arrow">↗</span></button>`).join('');
+ $('main').innerHTML=`<article class="card"><div class="hero"><div class="hero-grid"></div><div class="hero-top"><span class="tag">${esc(n.emblem||'MISSION')}</span><span class="tiny">${progress}</span></div><div class="hero-title">${esc(n.title)}</div><div class="hero-meta"><span>⌖ ${esc(n.place||'작전 통제실')}</span><span>◈ ${esc(n.speaker||'지홍')}</span></div></div><div class="story-body"><div class="eyebrow">FIELD REPORT / STORY</div><div class="story-text">${body}</div><div class="scene-foot"><span>모든 선택은 자원·관계·이후의 판단에 영향을 줄 수 있다.</span><span>${n.ch?`${n.ch}.12`: 'INTRO'}</span></div></div></article><section class="choice-panel"><div class="choice-label">YOUR DECISION <span>작전을 선택해</span></div><div class="choices">${choices}</div></section>`;
+ $('main').querySelectorAll('[data-choice]').forEach(b=>b.addEventListener('click',()=>chooseChoice(Number(b.dataset.choice))));
+}
+const OPS=[
+ {id:'scout',name:'정보 정찰',desc:'질문·기록을 검토해 정보 +8, 여론 열기 +1',cost:'행동 1',fx:{intel:8,heat:1}},
+ {id:'fund',name:'예산 정리',desc:'지출과 지원을 정리해 자금 +7, 영향력 +1',cost:'행동 1',fx:{cash:7,influence:1}},
+ {id:'press',name:'메시지 다듬기',desc:'공개 문구를 손봐 영향력 +6, 여론 열기 +3',cost:'행동 1',fx:{influence:6,heat:3}},
+ {id:'team',name:'팀 사기 회복',desc:'팀 사기 +7, 가장 낮은 관계 +3',cost:'행동 1',fx:{morale:7}},
+ {id:'cool',name:'긴장 낮추기',desc:'차분한 대응과 휴식으로 여론 열기 -7, 정보 +2',cost:'행동 1',fx:{heat:-7,intel:2}}
+];
+function doOp(id){const op=OPS.find(x=>x.id===id);if(!op||state.ap<1||state.usedOps.includes(id))return;const fx={...op.fx};if(id==='team'){const low=Object.keys(state.rel).sort((a,b)=>state.rel[a]-state.rel[b])[0];fx[low]=(fx[low]||0)+3;}
+ const changes=applyFx(fx);state.ap--;state.usedOps.push(id);state.log.push({chapter:NODES[state.node].ch,title:'작전 준비 행동',choice:op.name,changes,at:Date.now()});saveGame(true);render();toast(`${op.name} 실행 · ${changes.join(' · ')}`);}
+function openSide(){const n=NODES[state.node];if(!n||n.type!=='hub'||!n.side)return;const ch=n.ch;if(state.sideDone.includes(ch)){showModal(n.side.title,`<p>${esc(n.side.text)}</p><p class="good-note">이 추가 사건은 이미 해결했어. 다음 작전으로 돌아가도 돼.</p><div class="modal-actions"><button class="btn primary" id="sideDoneClose">돌아가기</button></div>`);$('sideDoneClose').onclick=closeModal;return;}
+ const choices=n.side.choices.map((c,i)=>`<button class="choice" data-sidechoice="${i}"><span class="choice-num">${i+1}</span><span class="choice-content"><b>${esc(c.label)}</b><span>${esc(c.desc)}</span></span><span class="choice-arrow">↗</span></button>`).join('');
+ showModal(n.side.title,`<p>${esc(n.side.text)}</p><div class="choice-label">추가 사건의 대응을 선택해</div><div class="choices">${choices}</div>`);
+ $('modalBody').querySelectorAll('[data-sidechoice]').forEach(b=>b.addEventListener('click',()=>{const c=n.side.choices[Number(b.dataset.sidechoice)];const changes=applyFx(c.fx);state.sideDone.push(ch);state.log.push({chapter:ch,title:n.side.title,choice:c.label,changes,at:Date.now()});closeModal();saveGame(true);render();toast('추가 사건 해결 · '+(changes.join(' · ')||'관계가 기록됨'));}));
+}
+function renderHub(n){
+ const act=OPS.map(op=>{const used=state.usedOps.includes(op.id);return `<button class="hub-action" data-op="${op.id}" ${used||state.ap<1?'disabled':''}><span class="hub-op">${used?'✓ 완료':'ACTION'}</span><b>${esc(op.name)}</b><span>${esc(op.desc)}</span><small>${used?'이번 장에서 완료':op.cost}</small></button>`;}).join('');
+ const sideState=state.sideDone.includes(n.ch)?'완료됨':'미해결 · 선택형 보너스 사건';
+ $('main').innerHTML=`<article class="card"><div class="hero"><div class="hero-grid"></div><div class="hero-top"><span class="tag">${esc(n.emblem)}</span><span class="tiny">CHAPTER ${String(n.ch).padStart(2,'0')} / 12</span></div><div class="hero-title">${esc(episodes[n.ch-1].title)}<small>작전 준비 단계</small></div><div class="hero-meta"><span>⌖ 김지홍의 방 · 지휘 데스크</span><span>◈ 준비 행동 ${state.ap}/3</span></div></div><div class="story-body"><div class="eyebrow">COMMAND PREPARATION</div><p>지홍은 방에서 전체 작전을 지휘한다. 이번 장의 본 임무로 넘어가기 전에 준비 행동을 최대 세 번 사용할 수 있다. 필요한 자원과 팀 상태를 보고 선택해.</p><div class="hub-actions">${act}</div><div class="hub-footer"><span>추가 사건: <b>${sideState}</b></span><button class="btn" id="sideOpen">추가 사건 열기 ↗</button></div><div class="next-mission"><div><div class="eyebrow">NEXT OBJECTIVE</div><b>${esc(n.next&&NODES[n.next]?NODES[n.next].title:'다음 임무')}</b><p class="tiny">준비를 마쳤으면 본 임무를 진행해. 준비 행동을 남겨도 불이익은 없어.</p></div><button class="btn primary" id="nextMission">본 임무 진행 ↗</button></div></div></article>`;
+ $('main').querySelectorAll('[data-op]').forEach(b=>b.addEventListener('click',()=>doOp(b.dataset.op)));$('sideOpen').onclick=openSide;$('nextMission').onclick=()=>go(n.next);
+}
+function renderMap(){
+ const cards=episodes.map((e,i)=>{const ch=i+1,done=state.chapterDone.includes(ch),unlocked=ch<=state.maxChapter+1;return `<button class="map-chapter ${done?'done':unlocked?'unlocked':'locked'}" data-map-ch="${ch}" ${unlocked?'':'disabled'}><span class="map-num">${String(ch).padStart(2,'0')}</span><b>${esc(e.title)}</b><small>${done?'MISSION CLEAR':unlocked?'진행 가능':'잠김'}</small></button>`;}).join('');
+ $('main').innerHTML=`<section class="page-heading"><div class="eyebrow">CAMPAIGN MAP</div><h2>작전 지도</h2><p>12개의 장으로 이어지는 장편 캠페인. 현재 장을 완료하면서 새로운 사건과 선택지를 열어 가.</p></section><div class="map-grid">${cards}</div><div class="page-actions"><button class="btn primary" id="returnStory">현재 작전으로 돌아가기 ↗</button></div>`;
+ $('main').querySelectorAll('[data-map-ch]').forEach(b=>b.addEventListener('click',()=>{if(Number(b.dataset.mapCh)<=state.maxChapter){toast('완료한 챕터는 작전 일지에서 확인할 수 있어. 현재 진행 위치는 유지돼.');}}));$('returnStory').onclick=()=>{activePage='story';render();};
+}
+function renderPeople(){
+ const people=[
+ {name:'김지홍',kicker:'THE ROOM STRATEGIST',role:'방구석 참모',text:'히키코모리. 작전실인 자기 방에서 정보를 분석하고 작전을 지휘한다. 현장에 직접 가지 않지만 선택의 결과를 책임진다.',stat:'정보 분석 · 선택 설계',icon:'知'},
+ {name:'준성',kicker:'KING OF YEOSU',role:'여수의 왕',text:'자신을 여수의 왕이라 부르는 인물. 왕의 자리를 유지하며 책임과 운영 방식을 개선할지 시험받는다.',stat:'최종 책임 · 공개 발표',icon:'王'},
+ {name:'상욱',kicker:'THE LOYAL OPERATOR',role:'준성의 따까리',text:'준성의 지시에 충실하게 움직이는 실무자. 충성심을 현장 운영과 공정한 절차로 발전시킬 수 있다.',stat:'현장 운영 · 실행력',icon:'↗'},
+ {name:'승우',kicker:'THE ARCHIVIST',role:'기록과 검증',text:'지홍의 옛 친구. 오래된 기록과 자료를 보관하며 기억과 사실을 구분하는 데 도움을 준다.',stat:'기록 · 자료 검증',icon:'▤'},
+ {name:'호택',kicker:'NETWORK & RESOURCES',role:'인맥과 지원',text:'돈과 넓은 인맥을 가진 옛 친구. 외부 협력과 예산을 연결하지만 모든 제안의 실제 비용을 확인해야 한다.',stat:'협력 연결 · 자원 관리',icon:'◇'}
+ ];
+ $('main').innerHTML=`<section class="page-heading"><div class="eyebrow">CHARACTER FILES</div><h2>인물 파일</h2><p>작전의 승패는 개인의 능력뿐 아니라 역할을 어떻게 나누고 신뢰를 어떻게 쌓는지에 달려 있어.</p></section><div class="people-grid">${people.map(p=>`<article class="person-card"><div class="person-avatar">${p.icon}</div><div class="eyebrow">${esc(p.kicker)}</div><h3>${esc(p.name)}</h3><div class="person-role">${esc(p.role)}</div><p>${esc(p.text)}</p><div class="tag">${esc(p.stat)}</div></article>`).join('')}</div>`;
+}
+function renderJournal(){
+ const logs=[...state.log].reverse();const html=logs.length?logs.map((l,i)=>`<article class="log-entry"><div class="log-top"><span>CHAPTER ${String(l.chapter||0).padStart(2,'0')}</span><time>${new Date(l.at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</time></div><b>${esc(l.title)}</b><p>${esc(l.choice)}</p><div class="log-changes">${l.changes?.length?l.changes.map(x=>`<span class="tag">${esc(x)}</span>`).join(''):'<span class="tiny">수치 변화 없음</span>'}</div></article>`).join(''):'<p class="muted-copy">아직 기록이 없어. 첫 선택을 마치면 작전 기록이 여기에 쌓여.</p>';
+ $('main').innerHTML=`<section class="page-heading"><div class="eyebrow">DECISION ARCHIVE</div><h2>작전 일지</h2><p>선택한 결정과 변화 내용을 시간 역순으로 확인할 수 있어. 캠페인 전체 기록은 저장 데이터에 포함돼.</p></section><div class="journal-tools"><span class="tag">${state.log.length} decisions archived</span><button class="btn" id="exportLog">일지 복사 ↗</button></div><div class="journal-list">${html}</div>`;
+ $('exportLog').onclick=()=>copyText(buildLogText());
+}
+function buildLogText(){return ['여수의 왕과 방구석 참모 · 작전 일지','',...state.log.map(l=>`[CH ${l.chapter||0}] ${l.title}\n선택: ${l.choice}\n변화: ${(l.changes||[]).join(', ')||'없음'}`)].join('\n\n');}
+function copyText(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(()=>toast('일지를 클립보드에 복사했어.')).catch(()=>fallbackCopy(text));}else fallbackCopy(text);}
+function fallbackCopy(text){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('일지를 복사했어.');}catch(e){showModal('복사할 텍스트',`<textarea class="export-text" readonly>${esc(text)}</textarea>`);}ta.remove();}
+function renderHelp(){
+ $('main').innerHTML=`<section class="page-heading"><div class="eyebrow">FIELD MANUAL</div><h2>작전 매뉴얼</h2><p>선택형 전략 시뮬레이션 · 12장 캠페인 · 자동 저장</p></section><div class="help-grid"><article class="help-card"><div class="eyebrow">01 / DECISIONS</div><h3>선택의 결과</h3><p>대화의 선택지는 자금·정보·영향력·팀 사기·여론 열기와 친구들의 신뢰에 영향을 준다. 정답 하나만 있는 구조가 아니며, 상황에 맞는 우선순위를 정하는 게 핵심이다.</p></article><article class="help-card"><div class="eyebrow">02 / PREPARATION</div><h3>작전 준비</h3><p>각 장의 도입 뒤에 작전 통제실이 열린다. 준비 행동을 세 번까지 사용할 수 있고, 추가 사건을 선택해 자원이나 관계를 보강할 수 있다. 본 임무를 진행하면 남은 행동은 초기화된다.</p></article><article class="help-card"><div class="eyebrow">03 / CAMPAIGN</div><h3>장편 스토리</h3><p>12개 챕터의 메인 스토리, 챕터마다 있는 추가 사건, 작전 지도와 인물 파일, 작전 일지가 포함된다. 엔딩은 최종 장에서 내린 결정에 따라 달라진다.</p></article><article class="help-card"><div class="eyebrow">04 / SAVE</div><h3>저장과 이어하기</h3><p>선택을 할 때마다 같은 브라우저의 로컬 저장 공간에 진행 상황이 자동 저장된다. 브라우저 데이터 삭제나 다른 기기에서는 저장이 이어지지 않을 수 있으니, 필요하면 작전 일지를 복사해 둘 수 있다.</p></article></div><div class="page-actions"><button class="btn primary" id="helpBack">스토리로 돌아가기 ↗</button><button class="btn" id="helpMenu">메뉴 열기</button></div>`;
+ $('helpBack').onclick=()=>{activePage='story';render();};$('helpMenu').onclick=openMenu;
+}
+function endingData(){const e=state.endingChoice||'ending_reform';if(e==='ending_council')return {title:'왕과 열린 회의',subtitle:'왕권은 유지되고, 목소리는 정기적으로 모인다.',body:'준성은 여수의 왕으로 남았다. 달라진 것은 왕의 자리가 아니라 왕과 사람들 사이에 놓인 절차였다. 정기 공개 회의와 공동 검토단이 만들어졌고, 지홍은 방 안에서 의제와 기록을 정리했다. 모든 의견이 채택되지는 않았지만 어떤 의견이 왜 보류됐는지 설명하는 규칙이 생겼다.',label:'PUBLIC COUNCIL'};if(e==='ending_sang')return {title:'상욱의 체크리스트 왕국',subtitle:'준성의 왕권, 상욱의 실행력, 지홍의 설계.',body:'준성은 여수의 왕으로 남았고, 상욱은 왕의 따까리라는 충성스러운 위치를 유지하면서 실무 운영 책임자로 성장했다. 보고와 검토 규칙 덕분에 충성심은 무조건적인 동의가 아니라 일을 끝까지 해내는 능력이 됐다. 지홍은 방 안에서 실행 체계를 조정하며, 현장 팀이 스스로 판단할 수 있도록 설계했다.',label:'OPERATIONS FIRST'};if(e==='ending_shadow')return {title:'보이지 않는 수석 참모',subtitle:'왕은 앞에 서고, 전략실은 조용히 돌아간다.',body:'준성은 여수의 왕으로 남았고, 지홍은 계속 자기 방에서 지휘하는 보이지 않는 수석 참모로 자리 잡았다. 공개 보고와 확인 절차는 유지하되, 지홍의 이름을 전면에 내세우지는 않았다. 그는 왕을 조종하는 사람이 아니라 왕이 책임 있는 결정을 내리게 돕는 전략가로 남았다. 화면에는 새로운 작전 노트가 열려 있었다. 조용한 방은 다시 시작할 준비를 마쳤다.',label:'THE HIDDEN STRATEGIST'};return {title:'왕권 개정판',subtitle:'왕관은 그대로, 운영 규칙은 새롭게.',body:'준성은 여수의 왕으로 남았다. 동시에 정기 보고, 공개 약속 추적표, 검증 절차가 운영 원칙으로 자리 잡았다. 왕의 자리를 지키기 위해 모든 비판을 막는 대신, 비판을 통해 고쳐야 할 일을 분리했다. 지홍은 여전히 방 안에서 작전을 설계하지만 이제는 자신의 판단뿐 아니라 그 판단을 검토할 수 있는 기록까지 남긴다. 왕권 재신임 프로젝트는 한 번의 승리로 끝나지 않았다. 다음 보고 날짜가 달력에 표시됐다.',label:'RULES REFORMED'};}
+function renderEnding(){const e=endingData();const elapsed=Math.max(0,Math.floor((Date.now()-(state.startedAt||Date.now()))/60000));const rank=state.stats.influence+state.stats.intel+state.stats.morale+state.rel.sang+state.rel.seung+state.rel.hotek-state.stats.heat;const grade=rank>=360?'S':rank>=300?'A':rank>=230?'B':rank>=170?'C':'D';
+ $('main').innerHTML=`<article class="card ending-card"><div class="hero"><div class="hero-grid"></div><div class="hero-top"><span class="tag">CAMPAIGN COMPLETE</span><span class="tiny">${e.label}</span></div><div class="hero-title">${esc(e.title)}</div><div class="hero-meta"><span>⌖ 여수 · 운영 결과 보고</span><span>◈ 최종 평가 ${grade}</span></div></div><div class="story-body"><div class="eyebrow">THE LAST REPORT</div><h3>${esc(e.subtitle)}</h3><p>${esc(e.body)}</p><p>김지홍은 히키코모리인 채로 끝까지 방에서 작전을 지휘했다. 준성은 여수의 왕으로 남았고, 상욱·승우·호택과의 관계도 각자의 역할 안에서 이어졌다. 캠페인의 결말은 끝이 아니라 다음 작전의 운영 방식을 정한 결과였다.</p><div class="ending-stats"><div><span>캠페인 평가</span><b>${grade}</b></div><div><span>플레이 경과</span><b>${elapsed}분</b></div><div><span>결정 기록</span><b>${state.log.length}</b></div><div><span>추가 사건</span><b>${state.sideDone.length}/12</b></div></div><div class="ending-actions"><button class="btn primary" id="newCampaign">새 캠페인 시작 ↗</button><button class="btn" id="endingJournal">작전 일지 보기</button><button class="btn" id="copyEnding">엔딩 보고서 복사</button></div></div></article>`;
+ $('newCampaign').onclick=()=>{if(confirm('현재 진행 데이터에 새 캠페인을 덮어쓸까?'))beginGame();};$('endingJournal').onclick=()=>{activePage='journal';render();};$('copyEnding').onclick=()=>copyText(`여수의 왕과 방구석 참모\n엔딩: ${e.title}\n${e.subtitle}\n\n${e.body}\n\n최종 평가: ${grade}\n플레이 경과: ${elapsed}분\n선택 기록: ${state.log.length}\n추가 사건: ${state.sideDone.length}/12`);
+}
+function render(){if(!state)return;renderHeader();renderRight();const n=NODES[state.node];if(activePage==='map')return renderMap();if(activePage==='people')return renderPeople();if(activePage==='journal')return renderJournal();if(activePage==='help')return renderHelp();activePage='story';if(!n){state.node='prologue';return render();}if(n.type==='hub')renderHub(n);else if(n.type==='ending')renderEnding();else renderScene(n);}
+function openMenu(){showModal('작전 메뉴',`<p>진행 상황은 자동 저장돼. 필요할 때 저장하거나 타이틀 화면으로 돌아갈 수 있어.</p><div class="menu-grid"><button class="btn primary" id="menuResume">계속하기</button><button class="btn" id="menuSave">지금 저장</button><button class="btn" id="menuTitle">타이틀로</button><button class="btn danger" id="menuDelete">저장 삭제</button></div>`);$('menuResume').onclick=closeModal;$('menuSave').onclick=()=>{saveGame();closeModal();};$('menuTitle').onclick=()=>{closeModal();returnTitle();};$('menuDelete').onclick=()=>{if(confirm('저장 데이터를 삭제할까? 이 작업은 되돌릴 수 없어.')){localStorage.removeItem(KEY);state=null;closeModal();$('game').style.display='none';$('title').style.display='grid';refreshContinue();toast('저장 데이터를 삭제했어.');}};}
+$('start').addEventListener('click',()=>{if(loadGame()&&confirm('기존 캠페인을 새 캠페인으로 덮어쓸까?'))beginGame();else if(!loadGame())beginGame();});
+$('continue').addEventListener('click',resumeGame);
+$('save').addEventListener('click',()=>saveGame());
+$('menu').addEventListener('click',openMenu);
+$('modalClose').addEventListener('click',closeModal);
+$('modalBack').addEventListener('click',e=>{if(e.target===$('modalBack'))closeModal();});
+document.querySelectorAll('.nav[data-page]').forEach(b=>b.addEventListener('click',()=>{activePage=b.dataset.page;document.querySelectorAll('.nav[data-page]').forEach(x=>x.classList.toggle('active',x===b));render();}));
+const originalRender=render;
+render=function(){originalRender();document.querySelectorAll('.nav[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===activePage));};
+refreshContinue();
+</script></body></html>
